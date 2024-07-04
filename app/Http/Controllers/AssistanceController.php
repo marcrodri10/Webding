@@ -61,7 +61,7 @@ class AssistanceController extends Controller
             }
 
         }
-        return response()->json(['response' => 'éxito', 'status' => 200]);
+        return response()->json(['response' => 'Respuesta enviada con éxito', 'status' => 200]);
 
 
 
