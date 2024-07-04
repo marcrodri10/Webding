@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth scroll;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100%;
+}
+
+.navbar {
+    height: 100%;
+    width: 100%;
+}
+
+#main-img {
+    width: 100%;
+    height: 100vh;
+    opacity: 0.5;
+}
+
+#wedding-date {
+    position: absolute;
+    height: 750px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    gap: 30px;
+
+}
+
+/* #timer{
+    position: absolute;
+    top: 100px;
+    left: 70%;
+}
+#timer p {
+    font-weight: 600;
+} */
+.dark-text {
+    color: #393939;
+    letter-spacing: 10px;
+}
+
+.time {
+    font-size: 80px;
+    font-weight: 100;
+}
+
+main {
+    width: 90%;
+}
+
+#roadmap {
+    width: 100%;
+}
+
+.roadmap-img,
+.roadmap-description {
+    width: 50%;
+    height: 400px;
+}
+
+.roadmap-description * {
+    width: 50%;
+}
+
+.roadmap-img img {
+    height: 100%;
+    width: 50%;
+}
+
+.rounded-img {
+    border-radius: 150px;
+}
+
+.story-img {
+    height: 300px;
+    width: 70%;
+}
+
+.story-text {
+    width: 70%;
+    text-align: center;
+}
+
+.gallery {
+    width: 80%;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 300px;
+}
+
+.adults {
+    width: 60%;
+}
+
+.adults-text {
+    width: 60%;
+    text-align: center;
+}
+
+.form-asistencia {
+    width: 70%;
+}
+
+#confirm {
+    width: 100%;
+}
+
+#nombre,
+#apellidos {
+    width: 40%;
+}
+
+.form-container {
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+}
+
+.submit {
+    width: 30%;
+    height: 35px;
+    border-radius: 0.375rem;
+}
+
+nav {
+    width: 100%;
+    height: 10vh;
+}
+
+tr {
+    width: 100%;
+}
+
+a {
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.5s forwards;
+}
+
+.slide-out {
+    animation: slideOut 0.5s forwards;
+}
+
+.toast {
+    display: none;
+}
+
+.card {
+    position: relative;
+    transition: transform .6s;
+    transform-style: preserve-3d;
+    z-index: 100;
+}
+
+.front-card {
+    backface-visibility: hidden;
+}
+
+.back-card {
+    position: absolute;
+    top: 0;
+    left: 90%;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+
+}
+.song-name{
+    border: 1px solid black;
+}
+.required::after{
+    content: "(*)";
+    color: rgb(230, 37, 37);
+}
+.roadmap-bar{
+    position: absolute;
+    top: 0;
+    left: 47.5%;
+}
