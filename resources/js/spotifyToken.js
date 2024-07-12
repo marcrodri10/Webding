@@ -27,7 +27,6 @@ personContainer.addEventListener('input', (event) => {
             }, 600);
         }
         songsDiv.addEventListener('click', (event) => {
-            console.log('hola');
             songInput.value = event.target.textContent
             songInput.setAttribute('data-uri', event.target.getAttribute('data-uri'))
             songsDiv.innerHTML = ""

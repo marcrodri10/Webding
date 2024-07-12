@@ -19,9 +19,9 @@
 
     <div id="our-story" class="flex flex-col justify-center mt-32 items-center">
         <h1 class="text-3xl">NUESTRA HISTORIA</h1>
-        <div class="story-group flex mt-10">
+        <div class="story-group md:flex mt-10">
             @foreach (['ale' => 'La historia de Alexandra', 'carlos' => 'La historia de Carlos', 'relacion' => 'Nuestra relación'] as $image => $title)
-                <div class="story flex flex-col justify-center items-center">
+                <div class="story flex flex-col gap-5 items-center mb-10">
                     <img src="{{ asset('img/' . $image . '.jpeg') }}" alt="" class="story-img">
                     <div class="story-text">
                         <h2 class="text-2xl font-semibold mt-2 mb-2">{{ $title }}</h2>
@@ -36,7 +36,7 @@
     </div>
 
     <div class="image-gallery mt-32 flex justify-center items-center">
-        <div class="gallery grid grid-cols-3 gap-5">
+        <div class="gallery grid md:grid-cols-3 gap-5">
             @for ($i = 1; $i <= 9; $i++)
                 <x-card imgFront="{{ asset('img/gallery/' . $i . '.jpeg') }}" />
             @endfor
@@ -56,7 +56,7 @@
 
     <div class="confirmar-asistencia mt-32 flex flex-col justify-center items-center">
         <div class="form-asistencia flex flex-col justify-center items-center">
-            <h1 class="text-3xl">CONFIRMAR ASISTENCIA</h1>
+            <h1 class="text-3xl text-center">CONFIRMAR ASISTENCIA</h1>
             <form id="confirm" class="mt-10 flex flex-col justify-center">
                 <div id="person-container" class="mb-10">
                     <div class="person-group">

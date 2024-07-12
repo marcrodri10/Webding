@@ -35,7 +35,6 @@ class AssistanceController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->messages();
-                dd($errors, $guest);
                 return response()->json(['response' => 'Ha habido un error inesperado: ', 'status' => 404]);
             }
         }
