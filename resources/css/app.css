@@ -28,13 +28,14 @@ html {
 
 #wedding-date {
     position: absolute;
-    height: 750px;
+    height: 90%;
     width: 100%;
     top: 0;
     left: 0;
     gap: 30px;
 
 }
+
 
 /* #timer{
     position: absolute;
@@ -61,6 +62,12 @@ html {
 }
 
 @screen md{
+    .time {
+        font-size: 60px;
+        font-weight: 100;
+    }
+}
+@screen lg{
     .time {
         font-size: 80px;
         font-weight: 100;

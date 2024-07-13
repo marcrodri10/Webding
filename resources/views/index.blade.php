@@ -45,7 +45,7 @@
 
     <div class="adults-only mt-32 flex flex-col justify-center items-center">
         <div class="adults flex flex-col justify-center items-center">
-            <h1 class="text-3xl">ADULTS ONLY</h1>
+            <h1 class="text-3xl text-center">ADULTS ONLY</h1>
             <p class="adults-text mt-10">Os pedimos en la medida de lo posible, dejéis a vuestros peques en casa, para que
                 entre todos podamos disfrutar del día sin preocupaciones. Si tenéis cualquier inconveniente nos podéis
                 contactar personalmente</p>
@@ -132,7 +132,7 @@
                     <p>Añadir persona</p>
                 </button>
                 <button type="submit"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded mt-10">CONFIRMAR</button>
+                    class="bg-blue-500 mb-5 hover:bg-blue-700 text-white font-bold rounded mt-10">CONFIRMAR</button>
         </div>
         </form>
     </div>
