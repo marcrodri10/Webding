@@ -55,7 +55,7 @@
 
 
     <div class="confirmar-asistencia mt-32 flex flex-col justify-center items-center">
-        <div class="form-asistencia flex flex-col justify-center items-center">
+        <div class="form-asistencia flex flex-col justify-center items-center" id="confirm-form">
             <h1 class="text-3xl text-center">CONFIRMAR ASISTENCIA</h1>
             <form id="confirm" class="mt-10 flex flex-col justify-center">
                 <div id="person-container" class="mb-10">

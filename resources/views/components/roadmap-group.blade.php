@@ -5,13 +5,13 @@
         <img src="{{ asset($image) }}" alt="" class="rounded-img">
     </div>
     <div class="roadmap-description flex flex-col items-center text-start gap-6 justify-center">
-        <h3 class="text-2xl">{{ $title }}</h3>
-        <p class="text-2xl">{{ $time }}</p>
+        <h3 class="sm:text-2xl">{{ $title }}</h3>
+        <p class="sm:text-2xl">{{ $time }}</p>
         @if($location)
-            <p class="text-2xl">{{ $location }}</p>
+            <p class="sm:text-2xl">{{ $location }}</p>
         @endif
         @if($map)
-            <a class="text-2xl underline text-blue-600" href="{{ $map }}">Mapa</a>
+            <a class="sm:text-2xl underline text-blue-600" href="{{ $map }}">Mapa</a>
         @endif
     </div>
 </div>
