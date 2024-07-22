@@ -8,7 +8,7 @@ confirmForm.addEventListener('submit', async (event) => {
     const totalGuests = confirmForm.querySelectorAll('.person-group').length;
 
     const formData = new FormData(confirmForm);
-    console.log(document.querySelectorAll('#song'));
+
     const songs = document.querySelectorAll('input[id*="song"]');
 
     songs.forEach((song) => {
@@ -55,6 +55,8 @@ confirmForm.addEventListener('submit', async (event) => {
     } catch (error) {
         console.error('Error:', error);
     }
+
+    confirmForm.reset();
 });
 
 function generateToast(message, responseCode) {

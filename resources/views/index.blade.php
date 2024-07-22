@@ -60,8 +60,9 @@
             <form id="confirm" class="mt-10 flex flex-col justify-center">
                 <div id="person-container" class="mb-10">
                     <div class="person-group">
-                        <div class="label-group flex justify-between">
-                            <div id="nombre" class="flex flex-col justify-center">
+                        <h1 class="text-xl font-bold mb-5 person-number">Persona 1</h1>
+                        <div class="label-group md:flex justify-between">
+                            <div id="nombre" class="flex flex-col justify-center mb-10 md:mb-0">
                                 <x-input-label for="name" :value="__('Nombre')" class="required" />
                                 <x-text-input type="text" name="name[]" id="name1" class="form-input" required></x-text-input>
                             </div>
@@ -112,7 +113,7 @@
                         </div>
                         <div class="alergias mt-8">
                             <p class="mb-3">Alergias</p>
-                            <textarea name="allergies[]" id="allergies1" cols="100" rows="5"></textarea>
+                            <textarea name="allergies[]" id="allergies1" cols="100" rows="5" class="border-gray-300 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm"></textarea>
                         </div>
                         <div class="cancion mt-8">
                             <p class="mb-3">¿Qué canción no puede faltar?</p>
@@ -124,15 +125,22 @@
                 </div>
 
                 <button type="button" id="add-person"
-                    class="inline-flex items-center justify-center mr-2 text-indigo-100 transition-colors duration-150 bg-blue-500 hover:bg-blue-700 rounded-lg focus:shadow-outline ">
+                    class="py-1 inline-flex items-center justify-center mr-2 text-white transition-colors duration-150 bg-blue-500 hover:bg-blue-700 rounded-lg focus:shadow-outline ">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
                         <path d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
                             clip-rule="evenodd" fill-rule="evenodd"></path>
                     </svg>
                     <p>Añadir persona</p>
                 </button>
+                <button type="button" id="remove-person"
+                    class="hidden py-1 mt-5 inline-flex items-center justify-center mr-2 text-white transition-colors duration-150 bg-red-500 hover:bg-red-700 rounded-lg focus:shadow-outline ">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                    <p>Eliminar persona</p>
+                </button>
                 <button type="submit"
-                    class="bg-blue-500 mb-5 hover:bg-blue-700 text-white font-bold rounded mt-10">CONFIRMAR</button>
+                    class="py-1 inline-flex font-bold items-center justify-center mr-2 text-white transition-colors duration-150 bg-black hover:bg-gray-800 rounded-lg focus:shadow-outline mt-10 mb-5">ENVIAR</button>
         </div>
         </form>
     </div>
