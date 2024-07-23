@@ -9,20 +9,22 @@
     </div>
 
     <!-- Regular Navbar -->
-    <ul class="flex navbar p-5 justify-center lg:gap-32 sm:gap-14 gap-3 lg:text-base text-sm text-center hidden sm:flex fixed top-0 left-0 right-0 bg-white shadow-lg z-10">
-        <li class="flex justify-center items-center"><a href="">INICIO</a></li>
-        <li class="flex justify-center items-center"><a class="scroll-anchor" data-to="#wedding-day">WEDDING DAY</a></li>
-        <li class="flex justify-center items-center"><a class="scroll-anchor" data-to="#our-story">NUESTRA HISTORIA</a></li>
-        <li class="flex justify-center items-center"><a class="scroll-anchor" data-to="#confirm">CONFIRMAR ASISTENCIA</a></li>
+    <ul class="flex navbar p-2 justify-center lg:gap-24 md:gap-12 sm:gap-7 gap-3 lg:text-base text-sm text-center hidden sm:flex fixed top-0 left-0 right-0 bg-white shadow-lg z-10">
+        <li class="flex justify-center items-center"><img src="{{asset('img/logo.jpg')}}" alt="" class="w-14 h-14"></li>
+        <li class="flex justify-center items-center"><a href="" class="font-bold">INICIO</a></li>
+        <li class="flex justify-center items-center"><a class="scroll-anchor font-bold" data-to="#wedding-day">WEDDING DAY</a></li>
+        <li class="flex justify-center items-center"><a class="scroll-anchor font-bold *:" data-to="#our-story">NUESTRA HISTORIA</a></li>
+        <li class="flex justify-center items-center"><a class="scroll-anchor font-bold" data-to="#confirm">CONFIRMAR ASISTENCIA</a></li>
     </ul>
 
     <!-- Mobile menu -->
     <div id="mobile-menu" class="fixed top-0 left-0 right-0 max-h-0 overflow-hidden bg-white shadow-lg transition-all duration-300 ease-in-out z-10">
         <ul class="flex flex-col items-center py-4">
-            <li class="flex justify-center items-center py-2"><a href="">INICIO</a></li>
-            <li class="flex justify-center items-center py-2"><a class="scroll-anchor" data-to="#wedding-day">WEDDING DAY</a></li>
-            <li class="flex justify-center items-center py-2"><a class="scroll-anchor" data-to="#our-story">NUESTRA HISTORIA</a></li>
-            <li class="flex justify-center items-center py-2"><a class="scroll-anchor" data-to="#confirm-form">CONFIRMAR ASISTENCIA</a></li>
+            <li class="flex justify-center items-center py-2"><img src="{{asset('img/logo.jpg')}}" alt="" class="w-14 h-14"></li>
+            <li class="flex justify-center items-center py-2"><a href="" class="font-bold">INICIO</a></li>
+            <li class="flex justify-center items-center py-2"><a class="scroll-anchor font-bold" data-to="#wedding-day">WEDDING DAY</a></li>
+            <li class="flex justify-center items-center py-2"><a class="scroll-anchor font-bold" data-to="#our-story">NUESTRA HISTORIA</a></li>
+            <li class="flex justify-center items-center py-2"><a class="scroll-anchor font-bold" data-to="#confirm-form">CONFIRMAR ASISTENCIA</a></li>
         </ul>
     </div>
 </nav>

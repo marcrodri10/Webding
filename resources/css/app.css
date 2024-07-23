@@ -19,19 +19,22 @@ html {
     width: 100%;
 }
 
+
 #main-img {
     width: 100%;
     height: 100vh;
-    opacity: 0.4;
+    opacity: 1;
     background-image: url('/public/img/main.jpg');
     background-size: cover;
-    background-position: center; /* Centra la imagen */
-            background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center;
+    /* Centra la imagen */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
 }
 
 #wedding-date {
     position: absolute;
-    height: 90%;
+    height: 95%;
     width: 100%;
     top: 0;
     left: 0;
@@ -50,7 +53,7 @@ html {
 } */
 
 .dark-text {
-    color: #000000;
+    color: #ffffff;
     letter-spacing: 10px;
 }
 
@@ -133,6 +136,9 @@ main {
 .gallery-image {
     width: 100%;
     height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .adults {
