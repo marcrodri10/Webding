@@ -13,23 +13,49 @@ personContainer.addEventListener('input', (event) => {
         const inputValue = event.target.value.trim(); // Obtener valor del input sin espacios en blanco al inicio y al final
 
         if (inputValue !== "") {
+
             interval = setTimeout(async () => {
                 const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                 const songs = await getSongs(inputValue, csrfToken);
+                console.log(songs);
+                const playlistSongs = await getPlaylistSongs(csrfToken);
+
                 // Mostrar solo las primeras 6 canciones
                 const songsToShow = songs.tracks.items.slice(0, 6);
 
                 for (let song of songsToShow) {
-                    songsDiv.innerHTML += `<div class="song-name">
-                    <p data-uri=${song.uri}>${song.name} - ${song.artists[0].name}</p>
-                </div>`;
+                    if (playlistSongs.includes(song.uri)) {
+                        songsDiv.innerHTML += `<div class="flex justify-between gap-5 song-name in-playlist">
+                        <p data-uri=${song.uri}>${song.name} - ${song.artists[0].name} <span>(Ya en playlist)</span></p>
+                        <img src="${song.album.images[2].url}" class="song-image"/>
+                        </div>`;
+                    }
+                    else {
+                        songsDiv.innerHTML += `<div class="flex justify-between gap-5 song-name not-playlist">
+                        <p data-uri=${song.uri}>${song.name} - ${song.artists[0].name}</p>
+                        <img src="${song.album.images[2].url}" class="song-image"/>
+                        </div>`;
+                    }
+
                 }
+                songsDiv.classList.add("border");
             }, 600);
         }
+        else {
+            songsDiv.classList.remove("border")
+        }
         songsDiv.addEventListener('click', (event) => {
-            songInput.value = event.target.textContent
-            songInput.setAttribute('data-uri', event.target.getAttribute('data-uri'))
-            songsDiv.innerHTML = ""
+
+            if (event.target.closest(".in-playlist")) {
+                console.log('Ya en playlist');
+            }
+            else {
+                songInput.value = event.target.textContent
+                songInput.setAttribute('data-uri', event.target.getAttribute('data-uri'))
+                songsDiv.innerHTML = ""
+                songsDiv.classList.remove("border")
+            }
+
 
         })
     }
@@ -66,6 +92,19 @@ async function getSongs(input, csrfToken) {
             'X-CSRF-TOKEN': csrfToken, // Enviar el token CSRF en la cabecera
         },
         body: song
+    })
+
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+}
+async function getPlaylistSongs(csrfToken) {
+    const response = await fetch('/playlist-songs', {
+        method: 'GET',
+        headers: {
+            'X-CSRF-TOKEN': csrfToken, // Enviar el token CSRF en la cabecera
+        }
     })
 
     if (!response.ok) {

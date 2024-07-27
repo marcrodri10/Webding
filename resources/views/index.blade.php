@@ -5,7 +5,7 @@
 @section('content')
     <div id="wedding-day" class="flex flex-col justify-center mt-10 items-center">
         <h1 class="text-3xl">WEDDING DAY</h1>
-        <div id="roadmap" class="mt-10 relative">
+        <div id="roadmap" class="mt-10 relative flex flex-col">
             <img src="{{ asset('img/roadmap.svg') }}" alt="" class="roadmap-bar">
             <x-roadmap-group image="img/IglesiaColor.jpeg" title="Ceremonia" time="12 : 30"
                 location="PARRÒQUIA DE SANT EUGENI I PAPA"
@@ -22,7 +22,8 @@
         <div class="story-group md:flex mt-10">
             @foreach (['ale' => 'La historia de Alexandra', 'carlos' => 'La historia de Carlos', 'relacion' => 'Nuestra relación'] as $image => $title)
                 <div class="story flex flex-col gap-5 items-center mb-10">
-                    <img src="{{ asset('img/' . $image . '.jpeg') }}" alt="" class="story-img">
+                    {{-- <img src="{{ asset('img/' . $image . '.jpeg') }}" alt="" class="story-img"> --}}
+                    <div style="background-image:url({{ asset('img/' . $image . '.jpeg') }})" class="story-img"></div>
                     <div class="story-text">
                         <h2 class="text-2xl font-semibold mt-2 mb-2">{{ $title }}</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed purus vitae mi euismod
@@ -38,7 +39,7 @@
     <div class="image-gallery mt-32 flex justify-center items-center">
         <div class="gallery grid md:grid-cols-3 gap-5">
             @for ($i = 1; $i <= 9; $i++)
-                <div style="background-image:url({{asset('img/gallery/' . $i . '.jpeg')}})" class="gallery-image"></div>
+                <div style="background-image:url({{ asset('img/gallery/' . $i . '.jpeg') }})" class="gallery-image"></div>
                 {{-- <x-card imgFront="{{ asset('img/gallery/' . $i . '.jpeg') }}" /> --}}
             @endfor
         </div>
@@ -61,40 +62,50 @@
             <form id="confirm" class="mt-10 flex flex-col justify-center">
                 <div id="person-container" class="mb-10">
                     <div class="person-group">
-                        <h1 class="text-xl font-bold mb-5 person-number">Persona 1</h1>
-                        <div class="label-group md:flex justify-between">
-                            <div id="nombre" class="flex flex-col justify-center mb-10 md:mb-0">
-                                <x-input-label for="name" :value="__('Nombre')" class="required" />
-                                <x-text-input type="text" name="name[]" id="name1" class="form-input" required></x-text-input>
-                            </div>
-                            <div id="apellidos" class="flex flex-col justify-center">
-                                <x-input-label for="surname" :value="__('Apellidos')" class="required" />
-                                <x-text-input type="text" name="surname[]" id="surname1" class="form-input" required></x-text-input>
+                        <h1 class="text-xl font-bold mb-5 person-number">Invitado 1</h1>
+                        <div class="guest-data">
+                            {{-- <h1 class="text-md font-bold mb-5">Datos del invitado</h1> --}}
+                            <div class="label-group md:flex justify-between">
+                                <div id="nombre" class="flex flex-col justify-center mb-10 md:mb-0 input-form">
+                                    <x-input-label for="name" :value="__('Nombre')" class="required" />
+                                    <x-text-input type="text" name="name[]" id="name1" class="form-input"
+                                        required></x-text-input>
+                                </div>
+                                <div id="apellidos" class="flex flex-col justify-center input-form">
+                                    <x-input-label for="surname" :value="__('Apellidos')" class="required" />
+                                    <x-text-input type="text" name="surname[]" id="surname1" class="form-input"
+                                        required></x-text-input>
+                                </div>
                             </div>
                         </div>
+
                         <div class="traslado mt-10">
-                            <p class="mb-5">Elige tu traslado</p>
-                            <p class="mb-3">Traslado al restaurante</p>
-                            <div class="label-group flex items-center gap-5">
-                                <input type="checkbox" name="banquet[]" id="banquet1">
-                                <x-input-label for="banquet1" :value="__('Barcelona - Sant Cugat')" />
+                            <div class="input-form">
+                                <p class="mb-5">Elige tu traslado</p>
+                                <p class="mb-3">Traslado al restaurante</p>
+                                <div class="label-group flex items-center gap-5">
+                                    <input type="checkbox" name="banquet[]" id="banquet1">
+                                    <x-input-label for="banquet1" :value="__('Barcelona - Sant Cugat')" />
+                                </div>
                             </div>
-                            <p class="mt-8 mb-3">Traslado a casa</p>
-                            <div class="label-group flex items-center gap-5">
-                                <input type="checkbox" name="home[]" id="bcn1" value="Barcelona" class="return">
-                                <x-input-label for="bcn1" :value="__('Sant Cugat - Barcelona')" />
+                            <div class="input-form">
+                                <p class="mt-8 mb-3">Traslado a casa</p>
+                                <div class="label-group flex items-center gap-5">
+                                    <input type="checkbox" name="home[]" id="bcn1" value="Barcelona" class="return">
+                                    <x-input-label for="bcn1" :value="__('Sant Cugat - Barcelona')" />
+                                </div>
+                                <div class="label-group flex items-center gap-5">
+                                    <input type="checkbox" name="home[]" id="gava1" value="Gavà" class="return">
+                                    <x-input-label for="gava1" :value="__('Sant Cugat - Gavà')" />
+                                </div>
                             </div>
-                            <div class="label-group flex items-center gap-5">
-                                <input type="checkbox" name="home[]" id="gava1" value="Gavà" class="return">
-                                <x-input-label for="gava1" :value="__('Sant Cugat - Gavà')" />
-                            </div>
+
                         </div>
-                        <div class="menu mt-8">
+                        <div class="menu mt-8 input-form">
                             <p class="mb-3 required">¿Algún menú especial?</p>
                             <div class="label-group flex items-center gap-5">
-                                <input type="checkbox" name="menu[]" id="all1" value="No, como de todo"
-                                    class="menu-input">
-                                <x-input-label for="all1" :value="__('No, como de todo')" />
+                                <input type="checkbox" name="menu[]" id="all1" value="No" class="menu-input">
+                                <x-input-label for="all1" :value="__('No')" />
                             </div>
                             <div class="label-group flex items-center gap-5">
                                 <input type="checkbox" name="menu[]" id="vegan1" value="Vegano" class="menu-input">
@@ -106,17 +117,18 @@
                                 <x-input-label for="vegetarian1" :value="__('Vegetariano')" />
                             </div>
                             <div class="label-group flex items-center gap-5">
-                                <input type="checkbox" name="menu[]" id="gluten-free1" value="Gluten free"
+                                <input type="checkbox" name="menu[]" id="gluten-free1" value="Gluten free (Celíaco)"
                                     class="menu-input">
-                                <x-input-label for="gluten-free1" :value="__('Gluten free')" />
+                                <x-input-label for="gluten-free1" :value="__('Gluten free (Celíaco)')" />
                             </div>
-                            <x-input-error :messages="$errors->get('menu')" class="mt-2" />
+
                         </div>
-                        <div class="alergias mt-8">
+                        <div class="alergias mt-8 input-form">
                             <p class="mb-3">Alergias</p>
-                            <textarea name="allergies[]" id="allergies1" cols="100" rows="5" class="border-gray-300 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm"></textarea>
+                            <textarea name="allergies[]" id="allergies1" cols="100" rows="5"
+                                class="border-gray-300 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm"></textarea>
                         </div>
-                        <div class="cancion mt-8">
+                        <div class="cancion mt-8 input-form">
                             <p class="mb-3">¿Qué canción no puede faltar?</p>
                             <x-text-input type="text" name="song[]" id="song1" class="song form-input"
                                 autocomplete="off"></x-text-input>
@@ -135,8 +147,10 @@
                 </button>
                 <button type="button" id="remove-person"
                     class="hidden py-1 mt-5 inline-flex items-center justify-center mr-2 text-white transition-colors duration-150 bg-red-500 hover:bg-red-700 rounded-lg focus:shadow-outline ">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                     <p>Eliminar persona</p>
                 </button>

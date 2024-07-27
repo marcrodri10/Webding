@@ -20,23 +20,41 @@ class AssistanceController extends Controller
     }
     public function store(Request $request)
     {
-        $formResults = $request->all();
-        $guestsArray = Guest::createGuestsArray($formResults);
 
+        $formResults = $request->all();
+
+        $guestsArray = Guest::createGuestsArray($formResults);
+        $rules = [
+            'name' => 'required|string',
+            'surname' => 'required|string',
+            'banquet' => 'string',
+            'home' => 'string',
+            'menu' => 'required|string',
+            'allergies' => 'string|nullable',
+            'song' => 'string|nullable',
+        ];
+        $guestIndex = 0;
         foreach($guestsArray as $guest){
-            $validator = Validator::make($guest, [
-                'name' => 'required|string',
-                'surname' => 'required|string',
-                'banquet' => 'string',
-                'home' => 'string',
-                'menu' => 'required|string',
-                'allergies' => 'string|nullable',
-                'song' => 'string|nullable',
+            $validator = Validator::make($guest, $rules, [
+                "name.required" => 'Nombre es un campo obligatorio',
+                "surname.required" => 'Apellido es un campo obligatorio',
+                "menu.required" => 'Menú es un campo obligatorio',
             ]);
             if ($validator->fails()) {
-                $errors = $validator->messages();
-                return response()->json(['response' => 'Ha habido un error inesperado: ', 'status' => 404]);
+                $errors = $validator->messages()->toArray();
+
+                foreach($errors as $name => $error){
+                    $errors[$name] = [];
+                    $errors[$name]["error"] = $error[0];
+                    $position = array_search($name, array_keys($rules));
+                    $errors[$name]["position"] = $position;
+                    $errors[$name]["guest"] = $guestIndex;
+
+                }
+
+                return response()->json(['response' => ["error" => $errors], 'status' => 404]);
             }
+            $guestIndex++;
         }
 
 
@@ -46,7 +64,7 @@ class AssistanceController extends Controller
 
             Guest::create($data[$key]);
 
-            if($data[$key]["uri"]){
+            if(array_key_exists("uri", $data[$key])){
                 try{
                     $responsePlaylist = $this->spotifyService->addSongToPlaylist($data[$key]["uri"]);
                     if($responsePlaylist->getData()->status !== 200){
@@ -60,7 +78,7 @@ class AssistanceController extends Controller
             }
 
         }
-        return response()->json(['response' => 'Respuesta enviada con éxito', 'status' => 200]);
+        return response()->json(['response' => ["success" => 'Respuesta enviada con éxito'], 'status' => 200]);
 
 
 

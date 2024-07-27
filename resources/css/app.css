@@ -103,7 +103,6 @@ main {
 .roadmap-img,
 .roadmap-description {
     width: 50%;
-    height: 400px;
 }
 
 .roadmap-description * {
@@ -114,7 +113,13 @@ main {
     height: auto;
     width: 50%;
 }
-
+.roadmap-bar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+}
 .rounded-img {
     border-radius: 150px;
 }
@@ -122,6 +127,9 @@ main {
 .story-img {
     height: 300px;
     width: 70%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .story-text {
@@ -258,20 +266,36 @@ a {
 }
 
 .song-name {
-    border: 1px solid black;
+    padding: 0.5rem 0.75rem;
 }
-
+.not-playlist{
+    cursor: pointer;
+}
+.in-playlist{
+    background-color: rgb(175, 175, 175);
+}
+.in-playlist span{
+    color: #bd2236cc;
+}
+.song-name:not(:last-child){
+    border-bottom: 1px solid black;
+}
+.border{
+    border: 1px solid black;
+    border-radius: 0.25rem;
+}
+.song-image{
+    height: 30px;
+    width: 30px;
+}
 .required::after {
     content: "(*)";
     color: rgb(230, 37, 37);
 }
+.not-playlist p:hover{
+    color: blue;
+}
 
-.roadmap-bar {
-    position: absolute;
-    top: 50%;
-    /* Posiciona el elemento al 50% desde la parte superior */
-    left: 50%;
-    /* Posiciona el elemento al 50% desde la izquierda */
-    transform: translate(-50%, -50%);
-    /* Ajusta la posición para centrar el elemento */
+.input-error{
+    border: 2px solid red;
 }

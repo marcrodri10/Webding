@@ -62,7 +62,7 @@ class SpotifyController extends Controller
         ]);
 
         $data = $response->json();
-
+        dd($data);
         if (isset($data['access_token'])) {
             Cache::put('spotify_access_token', $data['access_token'], now()->addMinutes(55));
         }
@@ -79,6 +79,13 @@ class SpotifyController extends Controller
         ])->get('https://api.spotify.com/v1/search?q='.$inputValue.'&type=track&limit=6');
 
         return response()->json(json_decode($response->getBody(), true));
+    }
+
+    public function getAllPlaylistSongs(){
+        $accessToken = Cache::get('spotify_access_token');
+        $songs = $this->spotifyService->getAllPlaylistSongs($accessToken);
+
+        return $songs;
     }
 
 

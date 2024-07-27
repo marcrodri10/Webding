@@ -12,7 +12,7 @@ addPersonBtn.addEventListener('click', () => {
     const newPersonGroup = personGroup.cloneNode(true);
     const inputs = newPersonGroup.querySelectorAll('input[type=text], textarea');
     const personNumber = newPersonGroup.querySelector('.person-number');
-    personNumber.textContent = `Persona ${countPerson}`;
+    personNumber.textContent = `Invitado/a ${countPerson}`;
     const checkboxes = newPersonGroup.querySelectorAll('input[type="checkbox"]');
     inputs.forEach((input) => {
         input.value = "";

@@ -29,6 +29,7 @@ Route::get('/download-csv', [CSVController::class, 'download'])->name('download.
 Route::get('/download-pdf', [PDFController::class, 'download'])->name('download.pdf');
 
 Route::post('/songs', [SpotifyController::class, 'getSongs'])->name('songs');
+Route::get('/playlist-songs', [SpotifyController::class, 'getAllPlaylistSongs'])->name('playlist-songs');
 Route::get('/spotify/authorize', [SpotifyController::class, 'redirectToSpotify'])->name('spotify.authorize');
 Route::get('/spotify/callback', [SpotifyController::class, 'handleSpotifyCallback'])->name('spotify.callback');
 Route::get('/dashboard', function () {

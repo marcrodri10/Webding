@@ -63,7 +63,8 @@ class SpotifyService
     {
         return $this->client;
     }
-    public function getSpotifyAccessToken(){
+    public function getSpotifyAccessToken()
+    {
 
         $response = Http::asForm()->post('https://accounts.spotify.com/api/token', [
             'grant_type' => 'refresh_token',
@@ -73,38 +74,52 @@ class SpotifyService
         ]);
 
         $data = $response->json();
-
         if (isset($data['access_token'])) {
             Cache::put('spotify_access_token', $data['access_token']);
-        }
-        else {
+        } else {
             throw new \Exception('Could not retrieve access token from Spotify');
         }
-
     }
 
     public function addSongToPlaylist($uri)
     {
         try {
+
             $accessToken = Cache::get('spotify_access_token');
+            $allSongs = $this->getAllPlaylistSongs($accessToken);
 
-            $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . $accessToken,
-                'Content-Type' => 'application/json',
-            ])->post("https://api.spotify.com/v1/playlists/20VRo6xdWrkoEMRU9AcHsc/tracks", [
-                'uris' => [$uri],
-            ]);
+            if (!in_array($uri, $allSongs)) {
+                $response = Http::withHeaders([
+                    'Authorization' => 'Bearer ' . $accessToken,
+                    'Content-Type' => 'application/json',
+                ])->post("https://api.spotify.com/v1/playlists/20VRo6xdWrkoEMRU9AcHsc/tracks", [
+                    'uris' => [$uri],
+                ]);
 
-            if ($response->successful()) {
-                return response()->json(['response' => 'Datos enviados con éxito', 'status' => 200]);
-            } else {
-                return response()->json(['response' => $response->body(), 'status' => 404]); // Verifica el código de estado y el cuerpo de la respuesta en caso de error
+                if ($response->successful()) {
+                    return response()->json(['response' => 'Datos enviados con éxito', 'status' => 200]);
+                } else {
+                    return response()->json(['response' => $response->body(), 'status' => 404]); // Verifica el código de estado y el cuerpo de la respuesta en caso de error
+                }
             }
-
+            return response()->json(['response' => 'Datos enviados con éxito', 'status' => 200]);
         } catch (\Exception $e) {
 
             return response()->json(['response' => $e->getMessage(), 'status' => 404]);
         }
     }
 
+    public function getAllPlaylistSongs($accessToken)
+    {
+        $songs = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $accessToken,
+            'Content-Type' => 'application/json',
+        ])->get("https://api.spotify.com/v1/playlists/20VRo6xdWrkoEMRU9AcHsc/tracks");
+
+        $songsUri = array_map(function ($song) {
+            return $song["track"]["uri"];
+        }, $songs->json()["items"]);
+
+        return $songsUri;
+    }
 }

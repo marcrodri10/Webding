@@ -12,8 +12,9 @@ confirmForm.addEventListener('submit', async (event) => {
     const songs = document.querySelectorAll('input[id*="song"]');
 
     songs.forEach((song) => {
-        songsUri.push(song.getAttribute('data-uri'));
+        if (song.hasAttribute('data-uri')) songsUri.push(song.getAttribute('data-uri'));
     })
+
     songsUri.forEach((song) => {
         formData.append("uri[]    ", song);
     });
@@ -35,7 +36,31 @@ confirmForm.addEventListener('submit', async (event) => {
         messageContainer.innerHTML = ''; // Limpiar mensajes previos
 
         if (data.response) {
-            messageContainer.innerHTML = generateToast(data.response, data.status);
+            const response = data.response;
+            console.log(data.response);
+            let message = "";
+            if (response.error) {
+
+                for (let error in response.error) {
+                    const personContainer = confirmForm.querySelector('#person-container');
+                    const formGroups = personContainer.children[response.error[error].guest].querySelectorAll('.input-form');
+                    formGroups[response.error[error].position].innerHTML += `
+                        <ul class='text-sm text-red-600 space-y-1 mt-1'>
+                        <li>${response.error[error].error}</li>
+                        </ul>
+                        `;
+                        const formGroupsInputs = formGroups[response.error[error].position].querySelectorAll('input');
+                        formGroupsInputs.forEach(input => {
+                            input.classList.add('input-error')
+                        })
+                    message += response.error[error].error;
+
+                }
+                message = `Error el enviar el formulario:<br> ${message}`;
+            }
+            else message += response.success;
+
+            messageContainer.innerHTML = generateToast(message, data.status);
 
             const toast = document.querySelector('.toast');
             if (toast) {
@@ -48,7 +73,7 @@ confirmForm.addEventListener('submit', async (event) => {
                     setTimeout(() => {
                         toast.style.display = 'none';
                     }, 500);
-                }, 3000);
+                }, 5000);
             }
         }
 
@@ -60,7 +85,7 @@ confirmForm.addEventListener('submit', async (event) => {
 });
 
 function generateToast(message, responseCode) {
-    if(responseCode === 200) {
+    if (responseCode === 200) {
         return `<div id="toast-success" class="toast fixed top-4 right-4 z-50 flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow-lg dark:text-gray-400 dark:bg-gray-800">
     <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -68,13 +93,8 @@ function generateToast(message, responseCode) {
         </svg>
         <span class="sr-only">Check icon</span>
     </div>
-    <div class="ml-3 text-sm font-normal">${message}</div>
-    <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-success" aria-label="Close">
-        <span class="sr-only">Close</span>
-        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-        </svg>
-    </button>
+    <div class="ml-3 text-sm font-normal"><p>${message}</p></div>
+
 </div>`;
     } else {
         return `<div id="toast-danger" class="toast fixed top-4 right-4 z-50 flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow-lg dark:text-gray-400 dark:bg-gray-800">
@@ -85,12 +105,7 @@ function generateToast(message, responseCode) {
         <span class="sr-only">Error icon</span>
     </div>
     <div class="ml-3 text-sm font-normal">${message}</div>
-    <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-danger" aria-label="Close">
-        <span class="sr-only">Close</span>
-        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-        </svg>
-    </button>
+
 </div>`;
     }
 }
