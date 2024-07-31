@@ -34,6 +34,7 @@ class AssistanceController extends Controller
             'song' => 'string|nullable',
         ];
         $guestIndex = 0;
+        $errorsArray = [];
         foreach($guestsArray as $guest){
             $validator = Validator::make($guest, $rules, [
                 "name.required" => 'Nombre es un campo obligatorio',
@@ -51,11 +52,12 @@ class AssistanceController extends Controller
                     $errors[$name]["guest"] = $guestIndex;
 
                 }
-
-                return response()->json(['response' => ["error" => $errors], 'status' => 404]);
+                $errorsArray[] = $errors;
+                //return response()->json(['response' => ["error" => $errors], 'status' => 404]);
             }
             $guestIndex++;
         }
+        if(sizeof($errorsArray) > 0) return response()->json(['response' => ["error" => $errorsArray], 'status' => 404]);
 
 
         $data = $guestsArray;

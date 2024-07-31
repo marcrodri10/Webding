@@ -37,26 +37,27 @@ confirmForm.addEventListener('submit', async (event) => {
 
         if (data.response) {
             const response = data.response;
-            console.log(data.response);
-            let message = "";
-            if (response.error) {
 
-                for (let error in response.error) {
-                    const personContainer = confirmForm.querySelector('#person-container');
-                    const formGroups = personContainer.children[response.error[error].guest].querySelectorAll('.input-form');
-                    formGroups[response.error[error].position].innerHTML += `
-                        <ul class='text-sm text-red-600 space-y-1 mt-1'>
-                        <li>${response.error[error].error}</li>
-                        </ul>
-                        `;
-                        const formGroupsInputs = formGroups[response.error[error].position].querySelectorAll('input');
+            let message = "";
+            let allErrors = new Set();
+            if (response.error) {
+                console.log(response.error);
+                response.error.forEach((formError) => {
+                    for (let error in formError) {
+                        const personContainer = confirmForm.querySelector('#person-container');
+                        const formGroups = personContainer.children[formError[error].guest].querySelectorAll('.input-form');
+
+                        formGroups[formError[error].position].querySelector('.error-message').textContent = formError[error].error;
+                        const formGroupsInputs = formGroups[formError[error].position].querySelectorAll('input, textarea');
                         formGroupsInputs.forEach(input => {
                             input.classList.add('input-error')
                         })
-                    message += response.error[error].error;
+                        allErrors.add(formError[error].error)
 
-                }
-                message = `Error el enviar el formulario:<br> ${message}`;
+                    }
+                    message = `Error al enviar el formulario:<br> ${Array.from(allErrors).join('<br>')}`;;
+                })
+
             }
             else message += response.success;
 
@@ -75,13 +76,24 @@ confirmForm.addEventListener('submit', async (event) => {
                     }, 500);
                 }, 5000);
             }
+
+            if (data.status === 200) {
+                confirmForm.reset();
+                const errorInputs = document.querySelectorAll('.input-error');
+                const errorMessage = document.querySelectorAll('.error-message');
+                errorInputs.forEach(input => {
+                    input.classList.remove('input-error');
+                })
+                errorMessage.forEach(message => {
+                    message.textContent = "";
+                })
+            }
         }
 
     } catch (error) {
         console.error('Error:', error);
     }
 
-    confirmForm.reset();
 });
 
 function generateToast(message, responseCode) {

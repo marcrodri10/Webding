@@ -39,8 +39,8 @@
     <div class="image-gallery mt-32 flex justify-center items-center">
         <div class="gallery grid md:grid-cols-3 gap-5">
             @for ($i = 1; $i <= 9; $i++)
-                <div style="background-image:url({{ asset('img/gallery/' . $i . '.jpeg') }})" class="gallery-image"></div>
-                {{-- <x-card imgFront="{{ asset('img/gallery/' . $i . '.jpeg') }}" /> --}}
+                {{-- <div style="background-image:url({{ asset('img/gallery/' . $i . '.jpeg') }})" class="gallery-image"></div> --}}
+                <x-card imgFront="{{ asset('img/gallery/' . $i . '.jpeg') }}" />
             @endfor
         </div>
     </div>
@@ -87,6 +87,7 @@
                                     <input type="checkbox" name="banquet[]" id="banquet1">
                                     <x-input-label for="banquet1" :value="__('Barcelona - Sant Cugat')" />
                                 </div>
+                                <x-input-error class="mt-2" />
                             </div>
                             <div class="input-form">
                                 <p class="mt-8 mb-3">Traslado a casa</p>
@@ -98,6 +99,7 @@
                                     <input type="checkbox" name="home[]" id="gava1" value="Gavà" class="return">
                                     <x-input-label for="gava1" :value="__('Sant Cugat - Gavà')" />
                                 </div>
+                                <x-input-error class="mt-2" />
                             </div>
 
                         </div>
@@ -121,18 +123,20 @@
                                     class="menu-input">
                                 <x-input-label for="gluten-free1" :value="__('Gluten free (Celíaco)')" />
                             </div>
-
+                            <x-input-error class="mt-2" />
                         </div>
                         <div class="alergias mt-8 input-form">
                             <p class="mb-3">Alergias</p>
                             <textarea name="allergies[]" id="allergies1" cols="100" rows="5"
                                 class="border-gray-300 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm"></textarea>
+                            <x-input-error class="mt-2" />
                         </div>
                         <div class="cancion mt-8 input-form">
                             <p class="mb-3">¿Qué canción no puede faltar?</p>
                             <x-text-input type="text" name="song[]" id="song1" class="song form-input"
                                 autocomplete="off"></x-text-input>
                             <div id="songs"></div>
+                            <x-input-error class="mt-2" />
                         </div>
                     </div>
                 </div>
