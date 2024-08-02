@@ -65,16 +65,18 @@
                         <h1 class="text-xl font-bold mb-5 person-number">Invitado 1</h1>
                         <div class="guest-data">
                             {{-- <h1 class="text-md font-bold mb-5">Datos del invitado</h1> --}}
-                            <div class="label-group md:flex justify-between">
+                            <div class="label-group md:flex justify-between items-start">
                                 <div id="nombre" class="flex flex-col justify-center mb-10 md:mb-0 input-form">
                                     <x-input-label for="name" :value="__('Nombre')" class="required" />
                                     <x-text-input type="text" name="name[]" id="name1" class="form-input"
                                         required></x-text-input>
+                                    <x-input-error class="mt-2" />
                                 </div>
                                 <div id="apellidos" class="flex flex-col justify-center input-form">
                                     <x-input-label for="surname" :value="__('Apellidos')" class="required" />
                                     <x-text-input type="text" name="surname[]" id="surname1" class="form-input"
                                         required></x-text-input>
+                                    <x-input-error class="mt-2" />
                                 </div>
                             </div>
                         </div>

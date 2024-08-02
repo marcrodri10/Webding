@@ -1,3 +1,4 @@
+import * as library from './functions';
 //const songInput = document.querySelector('#song');
 const personContainer = document.querySelector('#person-container');
 let interval;
@@ -5,6 +6,7 @@ let interval;
 personContainer.addEventListener('input', (event) => {
     if (event.target.id.includes("song")) {
         const songsDiv = event.target.nextElementSibling;
+
         const songInput = event.target;
 
         clearTimeout(interval);
@@ -17,7 +19,7 @@ personContainer.addEventListener('input', (event) => {
             interval = setTimeout(async () => {
                 const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                 const songs = await getSongs(inputValue, csrfToken);
-                console.log(songs);
+
                 const playlistSongs = await getPlaylistSongs(csrfToken);
 
                 // Mostrar solo las primeras 6 canciones
@@ -43,23 +45,51 @@ personContainer.addEventListener('input', (event) => {
         }
         else {
             songsDiv.classList.remove("border")
+            songInput.removeAttribute("data-uri");
+            if (songsDiv.classList.contains("input-error")) songsDiv.classList.remove("input-error")
+            if (songInput.classList.contains('input-error')) songInput.classList.remove("input-error")
+            songsDiv.nextElementSibling.querySelector('.error-message').innerHTML = "";
         }
-        songsDiv.addEventListener('click', (event) => {
 
-            if (event.target.closest(".in-playlist")) {
-                console.log('Ya en playlist');
-            }
-            else {
-                songInput.value = event.target.textContent
-                songInput.setAttribute('data-uri', event.target.getAttribute('data-uri'))
-                songsDiv.innerHTML = ""
-                songsDiv.classList.remove("border")
-            }
-
-
-        })
     }
 });
+personContainer.addEventListener('click', (event) => {
+    const songsDiv = event.target.closest('#songs');
+    if (songsDiv) {
+        const songInput = event.target.closest('.cancion').querySelector('.form-input');
+        if (event.target.closest(".in-playlist")) {
+            const messageContainer = document.querySelector('#message-container');
+            messageContainer.innerHTML = library.generateErrorToast('Esta canción ya se encuentra en nuestra playlist. Escoge otra');
+
+            const toast = document.querySelector('.toast');
+            if (toast) {
+                toast.style.display = 'flex';
+                toast.classList.add('slide-in');
+
+                setTimeout(() => {
+                    toast.classList.remove('slide-in');
+                    toast.classList.add('slide-out');
+                    setTimeout(() => {
+                        toast.style.display = 'none';
+                    }, 500);
+                }, 5000);
+            }
+        }
+        else {
+            songInput.value = event.target.textContent.trim()
+            if (songsDiv.classList.contains("input-error")) songsDiv.classList.remove("input-error")
+            if (songInput.classList.contains('input-error')) songInput.classList.remove("input-error")
+            songsDiv.nextElementSibling.querySelector('.error-message').innerHTML = "";
+            songInput.setAttribute('data-uri', event.target.getAttribute('data-uri'))
+            songsDiv.innerHTML = ""
+            songsDiv.classList.remove("border")
+        }
+    }
+
+
+
+
+})
 /* songInput.addEventListener('input', async (event) => {
     clearTimeout(interval);
     songsDiv.innerHTML = "";

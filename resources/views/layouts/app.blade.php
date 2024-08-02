@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/scroll.js',
     'resources/js/checkboxes.js', 'resources/js/cards.js', 'resources/js/spotifyToken.js',
-    'resources/js/confirmAssistance.js', 'resources/js/addPerson.js'])
+    'resources/js/confirmAssistance.js', 'resources/js/addPerson.js', 'resources/js/formInputs.js'])
 </head>
 
 <body>

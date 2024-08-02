@@ -57,30 +57,39 @@ class AssistanceController extends Controller
             }
             $guestIndex++;
         }
-        if(sizeof($errorsArray) > 0) return response()->json(['response' => ["error" => $errorsArray], 'status' => 404]);
+        if(sizeof($errorsArray) > 0) return response()->json(['response' => ["error" => $errorsArray, 'status' => 404]]);
 
 
         $data = $guestsArray;
+        $emptyUriArray = [];
         foreach($data as $key => $value){
             $data[$key]['banquet'] = $request->has('banquet') ? 1 : 0;
 
-            Guest::create($data[$key]);
+            if($data[$key]['song'] !== null && !array_key_exists("uri", $data[$key])) {
+                $emptyUriArray["song"]["error"] =  'Por favor, selecciona una canción de la lista inferior';
+                $emptyUriArray["song"]["guest"] = $key;
+                $emptyUriArray["song"]["position"] = array_search("song", array_keys($rules));
 
-            if(array_key_exists("uri", $data[$key])){
+            }
+            else if(array_key_exists("uri", $data[$key])){
                 try{
                     $responsePlaylist = $this->spotifyService->addSongToPlaylist($data[$key]["uri"]);
                     if($responsePlaylist->getData()->status !== 200){
-                        return response()->json(['response' => 'Error inesperado inténtelo más tarde', 'status' => 404]);
+
+                        return response()->json(['response' => ["error" => 'Error inesperado inténtelo más tarde', 'status' => 405]]);
                     }
                 }
                 catch(\Exception $e){
-                    throw new \Exception("Error inesperado inténtelo más tarde");
+                    return response()->json(['response' => ["error" => 'Error inesperado inténtelo más tarde', 'status' => 405]]);
                 }
 
             }
+            else Guest::create($data[$key]);
 
         }
-        return response()->json(['response' => ["success" => 'Respuesta enviada con éxito'], 'status' => 200]);
+        if(sizeof($emptyUriArray) > 0) return response()->json(['response' => ["error" => [$emptyUriArray], 'status' => 404]]);
+
+        return response()->json(['response' => ["success" => 'Respuesta enviada con éxito', 'status' => 200]]);
 
 
 

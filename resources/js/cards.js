@@ -1,3 +1,5 @@
+import * as library from './functions';
+
 document.addEventListener('DOMContentLoaded', function() {
     const galleryCards = document.querySelectorAll('.card');
 
@@ -9,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Activamos la rotación después de un breve retraso
             timer = setTimeout(() => {
-                rotateCard(card, 180);
+                library.rotateCard(card, 180);
             }, 50); // Puedes ajustar el retraso según sea necesario
         });
 
@@ -18,12 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Desactivamos la rotación después de un breve retraso
             timer = setTimeout(() => {
-                rotateCard(card, 0);
+                library.rotateCard(card, 0);
             }, 50); // Puedes ajustar el retraso según sea necesario
         });
     });
 
-    function rotateCard(card, rotation) {
-        card.style.transform = `rotateY(${rotation}deg)`;
-    }
+
 });

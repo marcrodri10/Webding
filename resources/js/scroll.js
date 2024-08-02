@@ -18,7 +18,7 @@ closeToastButton.forEach((closeToast) =>  {
     })
 });
  */
-document.addEventListener('DOMContentLoaded', function () {
+/* document.addEventListener('DOMContentLoaded', function () {
     const toasts = document.querySelectorAll('.toast');
     toasts.forEach((toast) => {
         if (toast) {
@@ -42,3 +42,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })
 })
+ */

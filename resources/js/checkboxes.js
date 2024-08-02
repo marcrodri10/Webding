@@ -2,22 +2,15 @@ const returnHomeCheckboxes = document.querySelectorAll('.return')
 const personContainer = document.querySelector('#person-container');
 
 personContainer.addEventListener('click', (event) => {
-    const inputForm = event.target.closest('.input-form');
-    if (inputForm) {
-        if (inputForm.querySelector('.error-message')) {
-            event.target.closest('.input-form').querySelector('.error-message').textContent = "";
-            event.target.closest('.input-form').querySelectorAll('input, textarea').forEach(input => {
-                input.classList.remove('input-error');
-            })
-        }
-
-    }
     if (event.target.className.includes('menu-input')) {
 
         const checkboxGroup = event.target.closest('.menu')
         const checkboxes = checkboxGroup.querySelectorAll('.menu-input')
+        const menuError = checkboxGroup.querySelector('.error-message');
 
+        menuError.textContent = "";
         checkboxes.forEach((checkbox) => {
+            if(checkbox.classList.contains('input-error')) checkbox.classList.remove('input-error');
             if (checkbox.id !== event.target.id) checkbox.checked = false
         })
     }
