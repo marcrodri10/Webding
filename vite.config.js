@@ -17,7 +17,7 @@ export default defineConfig({
                 'resources/js/constants/weddingDate.js',
                 'resources/js/functions.js',
                 'resources/js/formInputs.js',
-                'sources/js/bootstrap.js',
+                'resources/js/bootstrap.js',
             ],
             refresh: true,
         }),
