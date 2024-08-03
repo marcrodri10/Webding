@@ -14,7 +14,10 @@ export default defineConfig({
                 'resources/js/scroll.js',
                 'resources/js/spotifyToken.js',
                 'resources/js/constants/index.js',
-                'resources/js/constants/weddingDate.js'
+                'resources/js/constants/weddingDate.js',
+                'resources/js/functions.js',
+                'resources/js/formInputs.js',
+                'sources/js/bootstrap.js',
             ],
             refresh: true,
         }),
