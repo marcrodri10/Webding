@@ -20,16 +20,13 @@
     <div id="our-story" class="flex flex-col justify-center mt-32 items-center">
         <h1 class="text-3xl">NUESTRA HISTORIA</h1>
         <div class="story-group md:flex mt-10">
-            @foreach (['ale' => 'La historia de Alexandra', 'carlos' => 'La historia de Carlos', 'relacion' => 'Nuestra relación'] as $image => $title)
-                <div class="story flex flex-col gap-5 items-center mb-10">
+            @foreach ($ourStory as $story => $value)
+                <div class="story flex flex-col gap-5 items-center mb-10 w-1/3">
                     {{-- <img src="{{ asset('img/' . $image . '.jpeg') }}" alt="" class="story-img"> --}}
-                    <div style="background-image:url({{ asset('img/' . $image . '.jpeg') }})" class="story-img"></div>
+                    <div style="background-image:url({{ asset('img/' . $story . '.jpeg') }})" class="story-img"></div>
                     <div class="story-text">
-                        <h2 class="text-2xl font-semibold mt-2 mb-2">{{ $title }}</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed purus vitae mi euismod
-                            pretium et vitae ipsum. Integer a tellus imperdiet, dignissim justo a, hendrerit nulla. Praesent
-                            ut vulputate nibh. Morbi porttitor facilisis ligula vitae finibus. Nunc varius non risus vitae
-                            aliquet. Quisque vehicula dictum ornare. Suspendisse </p>
+                        <h2 class="text-2xl font-semibold mt-2 mb-2">{{ $value["title"] }}</h2>
+                        <p>{{$value["text"]}}</p>
                     </div>
                 </div>
             @endforeach
