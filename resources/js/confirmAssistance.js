@@ -87,6 +87,12 @@ confirmForm.addEventListener('submit', async (event) => {
 
             if (response.status === 200) {
                 confirmForm.reset();
+                const allPersonGroup = document.querySelectorAll('.person-group');
+                allPersonGroup.forEach((group, index) => {
+                    if(index !== 0) group.remove();
+                })
+                const removePersonBtn = document.querySelector('#remove-person');
+                removePersonBtn.classList.add("hidden");
                 /* const errorInputs = document.querySelectorAll('.input-error');
                 const errorMessage = document.querySelectorAll('.error-message');
                 errorInputs.forEach(input => {

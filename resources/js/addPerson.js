@@ -1,28 +1,34 @@
 const personContainer = document.querySelector('#person-container');
 const addPersonBtn = document.querySelector('#add-person');
 const removePersonBtn = document.querySelector('#remove-person');
-let countPerson = 1;
+let countPerson = document.querySelectorAll('.person-group').length;
 
 addPersonBtn.addEventListener('click', () => {
-    ++countPerson;
     if(removePersonBtn.classList.contains('hidden')) {
         removePersonBtn.classList.remove('hidden');
     }
     const personGroup = document.querySelector('.person-group');
     const newPersonGroup = personGroup.cloneNode(true);
+    //eliminar errores del clon
+    newPersonGroup.querySelectorAll('.input-error').forEach(input => {
+        input.classList.remove('input-error');
+    })
+    newPersonGroup.querySelectorAll('.error-message').forEach(input => {
+        input.textContent = "";
+    })
     const inputs = newPersonGroup.querySelectorAll('input[type=text], textarea');
     const personNumber = newPersonGroup.querySelector('.person-number');
-    personNumber.textContent = `Invitado/a ${countPerson}`;
+    personNumber.textContent = `Invitado/a ${document.querySelectorAll('.person-group').length + 1}`;
     const checkboxes = newPersonGroup.querySelectorAll('input[type="checkbox"]');
     inputs.forEach((input) => {
         input.value = "";
         input.removeAttribute('data-uri');
-        input.id = input.id.replace(/\d+$/, '') + (countPerson)
+        input.id = input.id.replace(/\d+$/, '') + (document.querySelectorAll('.person-group').length + 1)
     });
     checkboxes.forEach((checkbox) => {
         checkbox.checked = false;
-        checkbox.id = checkbox.id.replace(/\d+$/, '') + (countPerson)
-        checkbox.nextElementSibling.setAttribute('for', checkbox.id.replace(/\d+$/, '') + (countPerson))
+        checkbox.id = checkbox.id.replace(/\d+$/, '') + (document.querySelectorAll('.person-group').length + 1)
+        checkbox.nextElementSibling.setAttribute('for', checkbox.id.replace(/\d+$/, '') + (document.querySelectorAll('.person-group').length + 1))
     })
     newPersonGroup.classList.add('mt-10');
     /* const removePerson = document.createElement('button');
@@ -47,7 +53,7 @@ removePersonBtn.addEventListener('click', () => {
     const totalPersons = personGroups.length;
     personContainer.removeChild(personGroups[totalPersons - 1]);
 
-    --countPerson;
+    countPerson = document.querySelectorAll('.person-group').length;;
 
     if(countPerson === 1)  removePersonBtn.classList.add('hidden');
 })
