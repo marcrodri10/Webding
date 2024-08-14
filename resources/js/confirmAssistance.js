@@ -40,11 +40,11 @@ confirmForm.addEventListener('submit', async (event) => {
 
         if (data.response) {
             const response = data.response;
-            console.log(data);
+            
             let message = "";
             let allErrors = new Set();
             if (response.error) {
-                console.log(data.response);
+                
                 if(response.status === 405) message = response.error;
                 else if (response.status === 404) {
                     response.error.forEach((formError) => {
