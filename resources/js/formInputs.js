@@ -15,7 +15,7 @@ formInputs.forEach((input, index) => {
 
             input.classList.add('input-error');
             errorMessages[index].textContent = 'Este campo es obligatorio'
-            console.log(input.querySelectorAll('.error-message'));
+    
         }
     })
     input.addEventListener('input', (event) => {
