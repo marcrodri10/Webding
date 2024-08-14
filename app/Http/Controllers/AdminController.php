@@ -11,18 +11,18 @@ class AdminController extends Controller
 {
     //
     public function index(){
+        if(Auth::user()) return $this->admin();
         return view('auth.login');
     }
 
     public function auth(Request $request){
         $credentials = $request->only('username', 'password');
+
         if(!Auth::attempt($credentials)){
-            throw ValidationException::withMessages([
-                'username' => trans('auth.failed'),
-            ]);
+            return response()->json(["response" => ["error" => "El usuario o contraseña son incorrectos", "status" => 404]]);
         }
         else {
-            return redirect()->route('admin.index');
+            return response()->json(["response" => ["success" => "OK", "status" => 200]]);;
         }
     }
 

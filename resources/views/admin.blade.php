@@ -11,8 +11,8 @@
 
 <body>
     <div class="main flex flex-col justify-center items-center">
-        <nav class="bg-slate-300">
-            <ul>
+        <nav class="">
+            <ul class="mt-5 flex gap-10">
                 <li>
                     <form action="{{ route('download.csv') }}" method="GET">
                         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

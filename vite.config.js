@@ -18,6 +18,7 @@ export default defineConfig({
                 'resources/js/functions.js',
                 'resources/js/formInputs.js',
                 'resources/js/bootstrap.js',
+                'resources/js/login.js',
             ],
             refresh: true,
         }),
