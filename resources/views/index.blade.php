@@ -3,7 +3,7 @@
 @section('title', 'Bienvenido')
 
 @section('content')
-    <div id="wedding-day" class="flex flex-col justify-center mt-10 items-center">
+    {{-- <div id="wedding-day" class="flex flex-col justify-center mt-10 items-center">
         <h1 class="text-3xl">WEDDING DAY</h1>
         <div id="roadmap" class="mt-10 relative flex flex-col">
             <img src="{{ asset('img/roadmap.svg') }}" alt="" class="roadmap-bar">
@@ -15,6 +15,21 @@
                 map="https://www.google.es/maps/place/Masía+Can+Magí/@41.4810881,2.0881215,16z/data=!3m1!4b1!4m6!3m5!1s0x12a496eb43420dc1:0x2a3daa82ed2111de!8m2!3d41.4810841!4d2.0907018!16s%2Fg%2F11b7l84ww0?entry=ttu" />
             <x-roadmap-group image="img/transporte2.png" title="Traslado a casa" time="02 : 00" reverse="true" />
         </div>
+    </div> --}}
+    <div id="wedding-day" class="flex flex-col justify-center mt-10 items-center">
+        <h1 class="text-3xl">Dónde y cuándo</h1>
+        <div class="wedding-day-info-wrapper mt-10 border-spacing-5 md:table flex flex-col justify-center items-center gap-10">
+            <x-wedding-day title="Ceremonia" time="13:00h" site="PARRÒQUIA DE SANT EUGENI I PAPA"
+            city="Barcelona" img="{{asset('img/iglesia.jpeg')}}" map="https://www.google.es/maps/place/Iglesia+de+San+Eugenio/@41.3896705,2.1435739,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a28291573501:0x6cf16d975f77d450!8m2!3d41.3896665!4d2.1461542!16s%2Fg%2F1tr46pjv?entry=ttu">
+
+            </x-wedding-day>
+            <x-wedding-day title="Ceremonia" time="15:00h" site="CAN MAGÍ"
+            city="Sant Cugat" img="{{asset('img/magi.jpeg')}}" map="https://www.google.es/maps/place/Masía+Can+Magí/@41.4810881,2.0881215,16z/data=!3m1!4b1!4m6!3m5!1s0x12a496eb43420dc1:0x2a3daa82ed2111de!8m2!3d41.4810841!4d2.0907018!16s%2Fg%2F11b7l84ww0?entry=ttu">
+
+            </x-wedding-day>
+        </div>
+        
+        
     </div>
 
     <div id="our-story" class="flex flex-col justify-center mt-32 items-center">
@@ -41,7 +56,33 @@
             @endfor
         </div>
     </div>
+    <div class="transport-service-wrapper mt-40 flex justify-center flex-col items-center">
+        <div class="transport-service flex justify-center flex-col items-center">
+            <div class="transport-service-text text-center">
+                <h1 class="text-3xl">Servicio de transporte</h1>
+                <h3 class="mt-3">Horarios y puntos de recogida del servicio de autobús</h3>
+            </div>
+            <div class="transport-info-wrapper flex mt-10 gap-10 w-full">
+                <x-content-card class="w-1/2 flex flex-col items-center justify-around" height="250px">
+                    <h1 class="text-3xl">IDA</h1>
+                    <div class="schedule text-center flex flex-col gap-4">
+                        <p>Punto de recogida en</p>
+                        <p class="italic">*Horarios por confirmar</p>
+                    </div>
+                    
+                </x-content-card>
+                <x-content-card class="w-1/2 flex flex-col items-center justify-around" height="250px">
+                    <h1 class="text-3xl">VUELTA</h1>
+                    <div class="schedule text-center flex flex-col gap-4">
+                        <p>Punto de recogida en</p>
+                        <p class="italic">*Horarios por confirmar</p>
+                    </div>
+                </x-content-card>
+            </div>
+        </div>
+        
 
+    </div>
     <div class="adults-only mt-32 flex flex-col justify-center items-center">
         <div class="adults flex flex-col justify-center items-center">
             <h1 class="text-3xl text-center">ADULTS ONLY</h1>
@@ -51,11 +92,18 @@
             <strong>¡Gracias!</strong>
         </div>
     </div>
+    <div class="dress-code mt-32 flex flex-col justify-center items-center">
+        <div class="adults flex flex-col justify-center items-center">
+            <h1 class="text-3xl text-center">DRESS CODE</h1>
+            <p class="dress-code-text mt-5">Elegante</p>
+        </div>
+    </div>
 
-
-    <div class="confirmar-asistencia mt-32 flex flex-col justify-center items-center">
+    <div class="confirmar-asistencia mt-40 flex flex-col justify-center items-center">
         <div class="form-asistencia flex flex-col justify-center items-center" id="confirm-form">
-            <h1 class="text-3xl text-center">CONFIRMAR ASISTENCIA</h1>
+            <h1 class="text-3xl text-center">RVSP</h1>
+            <h3 class="text-center mt-5">Rogamos confirmar la asistencia antes del
+                <br><span class="italic">30 de noviembre de 2024</span></h3>
             <form id="confirm" class="mt-10 flex flex-col justify-center">
                 <div id="person-container" class="mb-10">
                     <div class="person-group">
