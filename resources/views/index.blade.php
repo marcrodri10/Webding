@@ -19,11 +19,11 @@
     <div id="wedding-day" class="flex flex-col justify-center mt-10 items-center">
         <h1 class="text-3xl">Dónde y cuándo</h1>
         <div class="wedding-day-info-wrapper mt-10 border-spacing-5 md:table flex flex-col justify-center items-center gap-10">
-            <x-wedding-day title="Ceremonia" time="13:00h" site="PARRÒQUIA DE SANT EUGENI I PAPA"
+            <x-wedding-day title="Ceremonia católica" time="12:30h" site="PARRÒQUIA DE SANT EUGENI I PAPA"
             city="Barcelona" img="{{asset('img/iglesia.jpeg')}}" map="https://www.google.es/maps/place/Iglesia+de+San+Eugenio/@41.3896705,2.1435739,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a28291573501:0x6cf16d975f77d450!8m2!3d41.3896665!4d2.1461542!16s%2Fg%2F1tr46pjv?entry=ttu">
 
             </x-wedding-day>
-            <x-wedding-day title="Ceremonia" time="15:00h" site="CAN MAGÍ"
+            <x-wedding-day title="Cóctel, banquete y celebración" time="15:00h" site="CAN MAGÍ"
             city="Sant Cugat" img="{{asset('img/magi.jpeg')}}" map="https://www.google.es/maps/place/Masía+Can+Magí/@41.4810881,2.0881215,16z/data=!3m1!4b1!4m6!3m5!1s0x12a496eb43420dc1:0x2a3daa82ed2111de!8m2!3d41.4810841!4d2.0907018!16s%2Fg%2F11b7l84ww0?entry=ttu">
 
             </x-wedding-day>
@@ -66,7 +66,8 @@
                 <x-content-card class="w-1/2 flex flex-col items-center justify-around" height="250px">
                     <h1 class="text-3xl">IDA</h1>
                     <div class="schedule text-center flex flex-col gap-4">
-                        <p>Punto de recogida en</p>
+                        <p>Punto de recogida en: <strong>Parroquia de SANT EUGENI I PAPA, 
+                            BARCELONA</strong>  </p>
                         <p class="italic">*Horarios por confirmar</p>
                     </div>
                     
@@ -74,7 +75,8 @@
                 <x-content-card class="w-1/2 flex flex-col items-center justify-around" height="250px">
                     <h1 class="text-3xl">VUELTA</h1>
                     <div class="schedule text-center flex flex-col gap-4">
-                        <p>Punto de recogida en</p>
+                        <p>Vuelta a: <strong>Can Magí - Plaça de Francesc Macià, Barcelona <br>
+                            Can Magí - Plaça de Catalunya, Gavà  </strong></p>
                         <p class="italic">*Horarios por confirmar</p>
                     </div>
                 </x-content-card>
@@ -103,7 +105,7 @@
         <div class="form-asistencia flex flex-col justify-center items-center" id="confirm-form">
             <h1 class="text-3xl text-center">RVSP</h1>
             <h3 class="text-center mt-5">Rogamos confirmar la asistencia antes del
-                <br><span class="italic">30 de noviembre de 2024</span></h3>
+                <br><span class="italic">20 de septiembre de 2024</span></h3>
             <form id="confirm" class="mt-10 flex flex-col justify-center">
                 <div id="person-container" class="mb-10">
                     <div class="person-group">
@@ -129,7 +131,7 @@
                         <div class="traslado mt-10">
                             <div class="input-form">
                                 <p class="mb-5">Elige tu traslado</p>
-                                <p class="mb-3">Traslado al restaurante</p>
+                                <p class="mb-3">Traslado a Can Magí</p>
                                 <div class="label-group flex items-center gap-5">
                                     <input type="checkbox" name="banquet[]" id="banquet1">
                                     <x-input-label for="banquet1" :value="__('Barcelona - Sant Cugat')" />
@@ -179,7 +181,8 @@
                             <x-input-error class="mt-2" />
                         </div>
                         <div class="cancion mt-8 input-form">
-                            <p class="mb-3">¿Qué canción no puede faltar?</p>
+                            <h3 class="mb-3 text-xl">¡Conviértete en DJ!</h3>
+                            <p class="mb-3">Envíanos tu canción favorita y la añadiremos a la lista que sonará en nuestra boda.</p>
                             <x-text-input type="text" name="song[]" id="song1" class="song form-input"
                                 autocomplete="off"></x-text-input>
                             <div id="songs"></div>
