@@ -33,7 +33,7 @@
     </div>
 
     <div id="our-story" class="flex flex-col justify-center mt-32 items-center">
-        <h1 class="text-3xl">NUESTRA HISTORIA</h1>
+        <h1 class="text-3xl">Nuestra historia</h1>
         <div class="story-group flex flex-col mt-10 md:flex-row">
             @foreach ($ourStory as $story => $value)
                 <div class="story flex flex-col gap-5 items-center mb-20 md:w-1/3">
@@ -52,7 +52,9 @@
         <div class="gallery grid md:grid-cols-3 gap-5">
             @for ($i = 1; $i <= 9; $i++)
                 {{-- <div style="background-image:url({{ asset('img/gallery/' . $i . '.jpeg') }})" class="gallery-image"></div> --}}
-                <x-card imgFront="{{ asset('img/gallery/' . $i . '.jpeg') }}" />
+                <x-card imgFront="{{ asset('img/gallery/' . $i . '.jpg') }}">
+                    {{$cardsImg[$i - 1]}}
+                </x-card>
             @endfor
         </div>
     </div>
@@ -87,7 +89,7 @@
     </div>
     <div class="adults-only mt-32 flex flex-col justify-center items-center">
         <div class="adults flex flex-col justify-center items-center">
-            <h1 class="text-3xl text-center">ADULTS ONLY</h1>
+            <h1 class="text-3xl text-center">Adults only</h1>
             <p class="adults-text mt-10">Os pedimos en la medida de lo posible, dejéis a vuestros peques en casa, para que
                 entre todos podamos disfrutar del día sin preocupaciones. Si tenéis cualquier inconveniente nos podéis
                 contactar personalmente</p>
@@ -96,7 +98,7 @@
     </div>
     <div class="dress-code mt-32 flex flex-col justify-center items-center">
         <div class="adults flex flex-col justify-center items-center">
-            <h1 class="text-3xl text-center">DRESS CODE</h1>
+            <h1 class="text-3xl text-center">Dress code</h1>
             <p class="dress-code-text mt-5">Elegante</p>
         </div>
     </div>

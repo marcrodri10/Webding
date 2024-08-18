@@ -19,8 +19,9 @@ class IndexController extends Controller
     public function index(){
         $date = Config::get('constants.WEDDING_DATE');
         $ourStory = Config::get('constants.OUR_STORY');
+        $cardsImg = Config::get('constants.CARDS');
         $this->spotifyService->getSpotifyAccessToken();
 
-        return view('index', ["date" => $date, "ourStory" => $ourStory]);
+        return view('index', ["date" => $date, "ourStory" => $ourStory, "cardsImg" => $cardsImg]);
     }
 }

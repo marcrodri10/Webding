@@ -3,6 +3,6 @@
         <!-- El div tiene la imagen de fondo aplicada -->
     </div>
     <div class="back-card">
-        <p>Hola</p>
+        <p>{{$slot}}</p>
     </div>
 </div>

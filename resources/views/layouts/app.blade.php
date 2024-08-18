@@ -9,11 +9,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/scroll.js',
     'resources/js/checkboxes.js', 'resources/js/cards.js', 'resources/js/spotifyToken.js',
     'resources/js/confirmAssistance.js', 'resources/js/addPerson.js', 'resources/js/formInputs.js'])
+
+
 </head>
 
 <body>
