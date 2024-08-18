@@ -64,8 +64,8 @@
                 <h1 class="text-3xl">Servicio de transporte</h1>
                 <h3 class="mt-3">Horarios y puntos de recogida del servicio de autobús</h3>
             </div>
-            <div class="transport-info-wrapper flex mt-10 gap-10 w-full">
-                <x-content-card class="w-1/2 flex flex-col items-center justify-around" height="250px">
+            <div class="transport-info-wrapper flex sm:flex-row flex-col mt-10 gap-10 w-full">
+                <x-content-card class="sm:w-1/2 w-full flex flex-col items-center justify-around" minHeight="250px">
                     <h1 class="text-3xl">IDA</h1>
                     <div class="schedule text-center flex flex-col gap-4">
                         <p>Punto de recogida en: <strong>Parroquia de SANT EUGENI I PAPA, 
@@ -74,11 +74,11 @@
                     </div>
                     
                 </x-content-card>
-                <x-content-card class="w-1/2 flex flex-col items-center justify-around" height="250px">
+                <x-content-card class="sm:w-1/2 w-full flex flex-col flex-wrap items-center justify-around" minHeight="250px">
                     <h1 class="text-3xl">VUELTA</h1>
                     <div class="schedule text-center flex flex-col gap-4">
                         <p>Vuelta a: <strong>Can Magí - Plaça de Francesc Macià, Barcelona <br>
-                            Can Magí - Plaça de Catalunya, Gavà  </strong></p>
+                            Can Magí - Plaça de Catalunya, Gavà</strong></p>
                         <p class="italic">*Horarios por confirmar</p>
                     </div>
                 </x-content-card>
