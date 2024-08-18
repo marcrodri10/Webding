@@ -49,7 +49,7 @@
     </div>
 
     <div class="image-gallery mt-32 flex justify-center items-center">
-        <div class="gallery grid md:grid-cols-3 gap-5">
+        <div class="gallery grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             @for ($i = 1; $i <= 9; $i++)
                 {{-- <div style="background-image:url({{ asset('img/gallery/' . $i . '.jpeg') }})" class="gallery-image"></div> --}}
                 <x-card imgFront="{{ asset('img/gallery/' . $i . '.jpg') }}">
