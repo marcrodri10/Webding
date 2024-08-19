@@ -32,10 +32,10 @@ const CountdownTimer = ( targetDate ) => {
             clearInterval(timerInterval);
             document.getElementById('countdown').innerHTML = '<h2>La fecha objetivo ha pasado</h2>';
         } else {
-            document.getElementById('days').innerHTML = `<h2 class="time">${timeLeft.days}</h2><p>DÍAS</p>`;
-            document.getElementById('hours').innerHTML = `<h2 class="time">${timeLeft.hours}</h2><p>HORAS</p>`;
-            document.getElementById('minutes').innerHTML = `<h2 class="time">${timeLeft.minutes}</h2><p>MINUTOS</p>`;
-            document.getElementById('seconds').innerHTML = `<h2 class="time">${timeLeft.seconds}</h2><p>SEGUNDOS</p>`;
+            document.getElementById('days').innerHTML = `<h2 class="time astralaga">${timeLeft.days}</h2><p class="astralaga">DÍAS</p>`;
+            document.getElementById('hours').innerHTML = `<h2 class="time astralaga">${timeLeft.hours}</h2><p class="astralaga">HORAS</p>`;
+            document.getElementById('minutes').innerHTML = `<h2 class="time astralaga">${timeLeft.minutes}</h2 class="astralaga"><p>MINUTOS</p>`;
+            document.getElementById('seconds').innerHTML = `<h2 class="time astralaga">${timeLeft.seconds}</h2><p class="astralaga">SEGUNDOS</p>`;
         }
     };
 

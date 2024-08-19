@@ -16,9 +16,9 @@
             <x-roadmap-group image="img/transporte2.png" title="Traslado a casa" time="02 : 00" reverse="true" />
         </div>
     </div> --}}
-    <div id="wedding-day" class="flex flex-col justify-center mt-10 items-center">
-        <h1 class="text-3xl">Dónde y cuándo</h1>
-        <div class="wedding-day-info-wrapper mt-10 border-spacing-5 md:table flex flex-col justify-center items-center gap-10">
+    <div id="wedding-day" class="flex flex-col justify-center mt-32 items-center">
+        <h1 class="text-3xl astralaga">Dónde y cuándo</h1>
+        <div class="wedding-day-info-wrapper mt-10 flex md:flex-row flex-col justify-center items-center gap-10">
             <x-wedding-day title="Ceremonia católica" time="12:30h" site="PARRÒQUIA DE SANT EUGENI I PAPA"
             city="Barcelona" img="{{asset('img/iglesia.jpeg')}}" map="https://www.google.es/maps/place/Iglesia+de+San+Eugenio/@41.3896705,2.1435739,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a28291573501:0x6cf16d975f77d450!8m2!3d41.3896665!4d2.1461542!16s%2Fg%2F1tr46pjv?entry=ttu">
 
@@ -31,16 +31,46 @@
         
         
     </div>
-
+    <div class="pre-wedding-wrapper mt-32 flex justify-center py-20">
+        <div id="pre-wedding-content-wrapper" class="flex gap-10">
+            <div class="pre-wedding-left-wrapper w-1/2">
+                <div id="pre-wedding-img"></div>
+            </div>
+            <div class="pre-wedding-right-wrapper w-1/2">
+                <h1 class="astralaga text-4xl">Preboda</h1>
+                <div class="pre-wedding-date mt-5">
+                    <p class="">28 Noviembre de 2024</p>
+                    <p class="">17:00h</p>
+                </div>
+                <div class="pre-wedding-cocktail-wrapper mt-5">
+                    <img src="{{asset("img/wine.svg")}}" alt="" class="h-8 w-8">
+                    <div id="pre-wedding-cocktail">
+                        <h3 class="font-bold text-md">Cocktail</h3>
+                        <p class="text-sm">Lugar</p>
+                    </div>
+                </div>
+                <div class="pre-wedding-dresscode-wrapper mt-5">
+                    <img src="{{asset("img/bow_tie.svg")}}" alt="" class="h-8 w-8">
+                    <div id="pre-wedding-dresscode">
+                        <h3 class="font-bold text-md">Dresscode</h3>
+                        <p class="text-sm">Explicación</p>
+                    </div>
+                </div>
+                
+                  
+            </div>
+        </div>
+        
+    </div>
     <div id="our-story" class="flex flex-col justify-center mt-32 items-center">
-        <h1 class="text-3xl">Nuestra historia</h1>
+        <h1 class="text-3xl astralaga">Nuestra historia</h1>
         <div class="story-group flex flex-col mt-10 md:flex-row">
             @foreach ($ourStory as $story => $value)
                 <div class="story flex flex-col gap-5 items-center mb-20 md:w-1/3">
                     {{-- <img src="{{ asset('img/' . $image . '.jpeg') }}" alt="" class="story-img"> --}}
                     <div style="background-image:url({{ asset('img/' . $story . '.jpeg') }})" class="story-img"></div>
                     <div class="story-text">
-                        <h2 class="text-2xl font-semibold mt-2 mb-2">{{ $value["title"] }}</h2>
+                        <h2 class="text-2xl font-bold mt-2 mb-5 astralaga">{{ $value["title"] }}</h2>
                         <p>{{$value["text"]}}</p>
                     </div>
                 </div>
@@ -58,15 +88,15 @@
             @endfor
         </div>
     </div>
-    <div class="transport-service-wrapper mt-40 flex justify-center flex-col items-center">
+    <div class="transport-service-wrapper mt-32 flex justify-center flex-col items-center">
         <div class="transport-service flex justify-center flex-col items-center">
             <div class="transport-service-text text-center">
-                <h1 class="text-3xl">Servicio de transporte</h1>
-                <h3 class="mt-3">Horarios y puntos de recogida del servicio de autobús</h3>
+                <h1 class="text-3xl astralaga">Servicio de transporte</h1>
+                <h3 class="mt-3 text-gray-400">Horarios y puntos de recogida del servicio de autobús</h3>
             </div>
             <div class="transport-info-wrapper flex sm:flex-row flex-col mt-10 gap-10 w-full">
                 <x-content-card class="sm:w-1/2 w-full flex flex-col items-center justify-around" minHeight="250px">
-                    <h1 class="text-3xl">IDA</h1>
+                    <h1 class="text-3xl astralaga">IDA</h1>
                     <div class="schedule text-center flex flex-col gap-4">
                         <p>Punto de recogida en: <strong>Parroquia de SANT EUGENI I PAPA, 
                             BARCELONA</strong>  </p>
@@ -75,7 +105,7 @@
                     
                 </x-content-card>
                 <x-content-card class="sm:w-1/2 w-full flex flex-col flex-wrap items-center justify-around" minHeight="250px">
-                    <h1 class="text-3xl">VUELTA</h1>
+                    <h1 class="text-3xl astralaga">VUELTA</h1>
                     <div class="schedule text-center flex flex-col gap-4">
                         <p>Vuelta a: <strong>Can Magí - Plaça de Francesc Macià, Barcelona <br>
                             Can Magí - Plaça de Catalunya, Gavà</strong></p>
@@ -88,30 +118,32 @@
 
     </div>
     <div class="adults-only mt-32 flex flex-col justify-center items-center">
-        <div class="adults flex flex-col justify-center items-center">
-            <h1 class="text-3xl text-center">Adults only</h1>
-            <p class="adults-text mt-10">Os pedimos en la medida de lo posible, dejéis a vuestros peques en casa, para que
-                entre todos podamos disfrutar del día sin preocupaciones. Si tenéis cualquier inconveniente nos podéis
-                contactar personalmente</p>
-            <strong>¡Gracias!</strong>
+        <div class="adults bg-gray-100 p-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
+            <h1 class="text-4xl font-semibold text-center text-gray-800 astralaga">Adults only</h1>
+            <p class="adults-text mt-6 text-lg text-center text-gray-600">
+                Os pedimos en la medida de lo posible, dejéis a vuestros peques en casa, para que entre todos podamos disfrutar del día sin preocupaciones. Si tenéis cualquier inconveniente nos podéis contactar personalmente.
+            </p>
+            <strong class="mt-4 text-lg text-gray-800">¡Gracias!</strong>
         </div>
     </div>
-    <div class="dress-code mt-32 flex flex-col justify-center items-center">
-        <div class="adults flex flex-col justify-center items-center">
-            <h1 class="text-3xl text-center">Dress code</h1>
-            <p class="dress-code-text mt-5">Elegante</p>
+    
+    <div class="dress-code mt-20 flex flex-col justify-center items-center">
+        <div class="dress-code bg-gray-100 p-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
+            <h1 class="text-4xl font-semibold text-center text-gray-800 astralaga">Dress code</h1>
+            <p class="dress-code-text mt-6 text-lg text-center text-gray-600">Elegante</p>
         </div>
     </div>
+    
 
     <div class="confirmar-asistencia mt-40 flex flex-col justify-center items-center">
         <div class="form-asistencia flex flex-col justify-center items-center" id="confirm-form">
-            <h1 class="text-3xl text-center">RVSP</h1>
+            <h1 class="text-3xl text-center astralaga">RVSP</h1>
             <h3 class="text-center mt-5">Rogamos confirmar la asistencia antes del
                 <br><span class="italic">20 de septiembre de 2024</span></h3>
             <form id="confirm" class="mt-10 flex flex-col justify-center">
                 <div id="person-container" class="mb-10">
                     <div class="person-group">
-                        <h1 class="text-xl font-bold mb-5 person-number">Invitado 1</h1>
+                        <h1 class="text-xl font-bold mb-5 person-number astralaga">Invitado 1</h1>
                         <div class="guest-data">
                             {{-- <h1 class="text-md font-bold mb-5">Datos del invitado</h1> --}}
                             <div class="label-group md:flex justify-between items-start">
@@ -183,7 +215,7 @@
                             <x-input-error class="mt-2" />
                         </div>
                         <div class="cancion mt-8 input-form">
-                            <h3 class="mb-3 text-xl">¡Conviértete en DJ!</h3>
+                            <h3 class="mb-3 text-xl astralaga">¡Conviértete en DJ!</h3>
                             <p class="mb-3">Envíanos tu canción favorita y la añadiremos a la lista que sonará en nuestra boda.</p>
                             <x-text-input type="text" name="song[]" id="song1" class="song form-input"
                                 autocomplete="off"></x-text-input>

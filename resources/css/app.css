@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @font-face {
     font-family: "Astralaga";
-    src: url('/fonts/Astralaga-Regular.ttf') format('truetype');
+    src: url('../../public/fonts/Astralaga-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -103,11 +103,8 @@ textarea {
     width: 100%;
 }
 
-main {
-    width: 90%;
-}
 .wedding-day-info-wrapper{
-    width: 90%;
+    width: 85%;
 }
 .wedding-day-content{
     display: grid;
@@ -170,7 +167,7 @@ main {
 }
 
 .gallery {
-    width: 80%;
+    width: 85%;
 }
 
 .gallery-image {
@@ -343,7 +340,7 @@ a {
 }
 
 .transport-service{
-    width: 90%;
+    width: 85%;
 }
 .content-card{
     border: 1px solid #bea074;
@@ -390,17 +387,32 @@ a {
 }
 
 .site-img{
-    width: 100%;
-    height: 600px;
+    width: 90%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 *{
     font-family: "Open sans";
     font-weight: 400;
     font-style: normal;
 }
-h1{
+.astralaga{
     font-family: "Astralaga";
+}
+#pre-wedding-img{
+    height: 100%;
+    width: 100%;
+    background-image: url("/public/img/pre-wedding.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.pre-wedding-wrapper{
+    background-color: #d2e2f542;
+}
+#pre-wedding-content-wrapper{
+    width: 85%;
 }
