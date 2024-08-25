@@ -24,7 +24,7 @@
 
             </x-wedding-day>
             <x-wedding-day title="Cóctel, banquete y celebración" time="15:00h" site="CAN MAGÍ"
-            city="Sant Cugat" img="{{asset('img/magi.jpeg')}}" map="https://www.google.es/maps/place/Masía+Can+Magí/@41.4810881,2.0881215,16z/data=!3m1!4b1!4m6!3m5!1s0x12a496eb43420dc1:0x2a3daa82ed2111de!8m2!3d41.4810841!4d2.0907018!16s%2Fg%2F11b7l84ww0?entry=ttu">
+            city="Sant Cugat" img="{{asset('img/can_magi.jpeg')}}" map="https://www.google.es/maps/place/Masía+Can+Magí/@41.4810881,2.0881215,16z/data=!3m1!4b1!4m6!3m5!1s0x12a496eb43420dc1:0x2a3daa82ed2111de!8m2!3d41.4810841!4d2.0907018!16s%2Fg%2F11b7l84ww0?entry=ttu">
 
             </x-wedding-day>
         </div>
@@ -32,11 +32,11 @@
         
     </div>
     <div class="pre-wedding-wrapper mt-32 flex justify-center py-20">
-        <div id="pre-wedding-content-wrapper" class="flex gap-10">
-            <div class="pre-wedding-left-wrapper w-1/2">
-                <div id="pre-wedding-img"></div>
+        <div id="pre-wedding-content-wrapper" class="flex md:flex-row flex-col gap-10">
+            <div class="pre-wedding-left-wrapper md:w-1/2 md:h-full h-1/2">
+                <img src="{{asset('img/pre-wedding.jpeg')}}" alt="running" class="h-80 w-full">
             </div>
-            <div class="pre-wedding-right-wrapper w-1/2">
+            <div class="pre-wedding-right-wrapper md:w-1/2 md:h-full h-1/2">
                 <h1 class="astralaga text-4xl">Pre-wedding Running Club</h1>
                 <div class="pre-wedding-date mt-5">
                     <p class="">29 Noviembre de 2024</p>
@@ -63,11 +63,11 @@
     </div>
     <div id="our-story" class="flex flex-col justify-center mt-32 items-center">
         <h1 class="text-3xl astralaga">Nuestra historia</h1>
-        <div class="story-group flex flex-col mt-10 md:flex-row">
+        <div class="story-group flex flex-col mt-10 lg:flex-row">
             @foreach ($ourStory as $story => $value)
-                <div class="story flex flex-col gap-5 items-center mb-20 md:w-1/3">
+                <div class="story flex flex-col gap-5 items-center mb-20 lg:w-1/3">
                     {{-- <img src="{{ asset('img/' . $image . '.jpeg') }}" alt="" class="story-img"> --}}
-                    <div style="background-image:url({{ asset('img/' . $story . '.jpeg') }})" class="story-img"></div>
+                    <div style="background-image:url({{ asset('img/' . $story . '.jpeg') }})" class="story-img" id="{{$story}}-img"></div>
                     <div class="story-text">
                         <h2 class="text-2xl font-bold mt-2 mb-5 astralaga">{{ $value["title"] }}</h2>
                         <p>{{$value["text"]}}</p>
@@ -167,7 +167,7 @@
                                 <p class="mb-3">Traslado a Can Magí</p>
                                 <div class="label-group flex items-center gap-5">
                                     <input type="checkbox" name="banquet[]" id="banquet1">
-                                    <x-input-label for="banquet1" :value="__('Barcelona - Sant Cugat')" />
+                                    <x-input-label for="banquet1" :value="__('BarcelonCan Magí')" />
                                 </div>
                                 <x-input-error class="mt-2" />
                             </div>
@@ -175,11 +175,11 @@
                                 <p class="mt-8 mb-3">Traslado a casa</p>
                                 <div class="label-group flex items-center gap-5">
                                     <input type="checkbox" name="home[]" id="bcn1" value="Barcelona" class="return">
-                                    <x-input-label for="bcn1" :value="__('Sant Cugat - Barcelona')" />
+                                    <x-input-label for="bcn1" :value="__('Can Magí - Barcelona')" />
                                 </div>
                                 <div class="label-group flex items-center gap-5">
                                     <input type="checkbox" name="home[]" id="gava1" value="Gavà" class="return">
-                                    <x-input-label for="gava1" :value="__('Sant Cugat - Gavà')" />
+                                    <x-input-label for="gava1" :value="__('Can Magí - Gavà')" />
                                 </div>
                                 <x-input-error class="mt-2" />
                             </div>

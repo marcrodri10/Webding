@@ -152,13 +152,30 @@ textarea {
 .rounded-img {
     border-radius: 150px;
 }
-
+@screen sm{
+    #carlos-img{
+        background-position:top;
+    }
+    
+}
+@screen sm{
+    #relacion-img{
+        background-position:10% 10%;
+    }
+}
+@screen lg {
+    #relacion-img{
+        background-position:20% 50%;
+    }
+}
 .story-img {
     height: 300px;
     width: 70%;
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
+}
+#ale-img{
+    background-position: center;
 }
 
 .story-text {
@@ -402,14 +419,7 @@ a {
 .astralaga{
     font-family: "Astralaga";
 }
-#pre-wedding-img{
-    height: 100%;
-    width: 100%;
-    background-image: url("/public/img/pre-wedding.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+
 .pre-wedding-wrapper{
     background-color: #d2e2f542;
 }
