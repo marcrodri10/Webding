@@ -37,23 +37,22 @@
                 <div id="pre-wedding-img"></div>
             </div>
             <div class="pre-wedding-right-wrapper w-1/2">
-                <h1 class="astralaga text-4xl">Preboda</h1>
+                <h1 class="astralaga text-4xl">Pre-wedding Running Club</h1>
                 <div class="pre-wedding-date mt-5">
-                    <p class="">28 Noviembre de 2024</p>
-                    <p class="">17:00h</p>
+                    <p class="">29 Noviembre de 2024</p>
+                    <p class="">18:00h</p>
                 </div>
-                <div class="pre-wedding-cocktail-wrapper mt-5">
-                    <img src="{{asset("img/wine.svg")}}" alt="" class="h-8 w-8">
-                    <div id="pre-wedding-cocktail">
-                        <h3 class="font-bold text-md">Cocktail</h3>
-                        <p class="text-sm">Lugar</p>
+                <div class="pre-wedding-details-wrapper mt-5">
+                    <div id="pre-wedding-details">
+                        <h3 class="font-bold text-md">More details</h3>
+                        <p class="text-sm">TBC soon</p>
                     </div>
                 </div>
                 <div class="pre-wedding-dresscode-wrapper mt-5">
                     <img src="{{asset("img/bow_tie.svg")}}" alt="" class="h-8 w-8">
                     <div id="pre-wedding-dresscode">
                         <h3 class="font-bold text-md">Dresscode</h3>
-                        <p class="text-sm">Explicación</p>
+                        <p class="text-sm">Sport</p>
                     </div>
                 </div>
                 
@@ -121,7 +120,7 @@
         <div class="adults bg-gray-100 p-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
             <h1 class="text-4xl font-semibold text-center text-gray-800 astralaga">Adults only</h1>
             <p class="adults-text mt-6 text-lg text-center text-gray-600">
-                Os pedimos en la medida de lo posible, dejéis a vuestros peques en casa, para que entre todos podamos disfrutar del día sin preocupaciones. Si tenéis cualquier inconveniente nos podéis contactar personalmente.
+                os que en la medida de lo posible, dejéis a vuestros peques en casa, para que entre todos podamos disfrutar del día sin preocupaciones. Si tenéis cualquier inconveniente nos podéis contactar personalmente.
             </p>
             <strong class="mt-4 text-lg text-gray-800">¡Gracias!</strong>
         </div>
