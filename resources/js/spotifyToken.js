@@ -5,7 +5,8 @@ let interval;
 //const songsDiv = document.querySelector('#songs');
 personContainer.addEventListener('input', (event) => {
     if (event.target.id.includes("song")) {
-        const songsDiv = event.target.nextElementSibling;
+        
+        const songsDiv = document.querySelector("#songs");
 
         const songInput = event.target;
 
@@ -15,13 +16,15 @@ personContainer.addEventListener('input', (event) => {
         const inputValue = event.target.value.trim(); // Obtener valor del input sin espacios en blanco al inicio y al final
 
         if (inputValue !== "") {
+            const spinner = document.querySelector("#spinner")
+            spinner.classList.remove("hidden")
 
             interval = setTimeout(async () => {
                 const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                 const songs = await getSongs(inputValue, csrfToken);
 
                 const playlistSongs = await getPlaylistSongs(csrfToken);
-
+                if(songs) spinner.classList.add("hidden")
                 // Mostrar solo las primeras 6 canciones
                 const songsToShow = songs.tracks.items.slice(0, 6);
 
@@ -41,7 +44,7 @@ personContainer.addEventListener('input', (event) => {
 
                 }
                 songsDiv.classList.add("border");
-            }, 600);
+            }, 700);
         }
         else {
             songsDiv.classList.remove("border")
