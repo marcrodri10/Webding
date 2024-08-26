@@ -167,7 +167,7 @@
                                 <p class="mb-3">Traslado a Can Magí</p>
                                 <div class="label-group flex items-center gap-5">
                                     <input type="checkbox" name="banquet[]" id="banquet1">
-                                    <x-input-label for="banquet1" :value="__('BarcelonCan Magí')" />
+                                    <x-input-label for="banquet1" :value="__('Barcelona - Can Magí')" />
                                 </div>
                                 <x-input-error class="mt-2" />
                             </div>

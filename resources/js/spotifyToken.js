@@ -6,7 +6,7 @@ let interval;
 personContainer.addEventListener('input', (event) => {
     if (event.target.id.includes("song")) {
         
-        const songsDiv = document.querySelector("#songs");
+        const songsDiv = event.target.parentElement.parentElement.children[3];
 
         const songInput = event.target;
 
