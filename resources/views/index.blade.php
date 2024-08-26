@@ -20,7 +20,7 @@
         <h1 class="text-3xl astralaga">Dónde y cuándo</h1>
         <div class="wedding-day-info-wrapper mt-10 flex md:flex-row flex-col justify-center items-center gap-10">
             <x-wedding-day title="Ceremonia católica" time="12:30h" site="PARRÒQUIA DE SANT EUGENI I PAPA"
-            city="Barcelona" img="{{asset('img/iglesia2.jpeg')}}" map="https://www.google.es/maps/place/Iglesia+de+San+Eugenio/@41.3896705,2.1435739,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a28291573501:0x6cf16d975f77d450!8m2!3d41.3896665!4d2.1461542!16s%2Fg%2F1tr46pjv?entry=ttu">
+            city="Barcelona" img="{{asset('img/parroquia3.jpg')}}" map="https://www.google.es/maps/place/Iglesia+de+San+Eugenio/@41.3896705,2.1435739,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a28291573501:0x6cf16d975f77d450!8m2!3d41.3896665!4d2.1461542!16s%2Fg%2F1tr46pjv?entry=ttu">
 
             </x-wedding-day>
             <x-wedding-day title="Cóctel, banquete y celebración" time="15:00h" site="CAN MAGÍ"
