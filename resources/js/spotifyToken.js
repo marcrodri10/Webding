@@ -16,7 +16,8 @@ personContainer.addEventListener('input', (event) => {
         const inputValue = event.target.value.trim(); // Obtener valor del input sin espacios en blanco al inicio y al final
 
         if (inputValue !== "") {
-            const spinner = document.querySelector("#spinner")
+            const spinner = event.target.nextElementSibling;
+            
             spinner.classList.remove("hidden")
 
             interval = setTimeout(async () => {

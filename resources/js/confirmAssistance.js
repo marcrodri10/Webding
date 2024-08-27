@@ -43,6 +43,7 @@ confirmForm.addEventListener('submit', async (event) => {
             
             let message = "";
             let allErrors = new Set();
+            console.log(response);
             if (response.error) {
                 
                 if(response.status === 405) message = response.error;
@@ -50,7 +51,7 @@ confirmForm.addEventListener('submit', async (event) => {
                     response.error.forEach((formError) => {
                         for (let error in formError) {
                             const personContainer = confirmForm.querySelector('#person-container');
-                            const formGroups = personContainer.children[formError[error].guest].querySelectorAll('.input-form');
+                            const formGroups = personContainer.children[formError[error].guest - 1].querySelectorAll('.input-form');
 
                             formGroups[formError[error].position].querySelector('.error-message').textContent = formError[error].error;
                             const formGroupsInputs = formGroups[formError[error].position].querySelectorAll('input, textarea, #songs');
