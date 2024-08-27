@@ -188,20 +188,20 @@
                         <div class="menu mt-8 input-form">
                             <p class="mb-3 required">¿Algún menú especial?</p>
                             <div class="label-group flex items-center gap-5">
-                                <input type="checkbox" name="menu[]" id="all1" value="No" class="menu-input">
+                                <input type="checkbox" name="menu[1][menu]" id="all1" value="No" class="menu-input">
                                 <x-input-label for="all1" :value="__('No')" />
                             </div>
                             <div class="label-group flex items-center gap-5">
-                                <input type="checkbox" name="menu[]" id="vegan1" value="Vegano" class="menu-input">
+                                <input type="checkbox" name="menu[1][menu]" id="vegan1" value="Vegano" class="menu-input">
                                 <x-input-label for="vegan1" :value="__('Vegano')" />
                             </div>
                             <div class="label-group flex items-center gap-5">
-                                <input type="checkbox" name="menu[]" id="vegetarian1" value="Vegetariano"
+                                <input type="checkbox" name="menu[1][menu]" id="vegetarian1" value="Vegetariano"
                                     class="menu-input">
                                 <x-input-label for="vegetarian1" :value="__('Vegetariano')" />
                             </div>
                             <div class="label-group flex items-center gap-5">
-                                <input type="checkbox" name="menu[]" id="gluten-free1" value="Gluten free (Celíaco)"
+                                <input type="checkbox" name="menu[1][menu]" id="gluten-free1" value="Gluten free (Celíaco)"
                                     class="menu-input">
                                 <x-input-label for="gluten-free1" :value="__('Gluten free (Celíaco)')" />
                             </div>

@@ -30,10 +30,9 @@ class AssistanceController extends Controller
         $emptyUriArray = [];
 
         foreach ($guestsArray as $index => $guest) {
-            $guest['banquet'] = $request->has('banquet') ? 1 : 0;
-
+            
             if (!empty($guest['song']) && !array_key_exists('uri', $guest)) {
-                $emptyUriArray["song"] = [
+                $emptyUriArray[]["song"] = [
                     "error" => 'Por favor, selecciona una canción de la lista inferior',
                     "guest" => $index,
                     "position" => array_search("song", array_keys($this->getValidationRules()))
@@ -49,11 +48,15 @@ class AssistanceController extends Controller
                 }
             }
 
-            Guest::create($guest);
+            
         }
-
+   
         if (!empty($emptyUriArray)) {
-            return response()->json(['response' => ['error' => [$emptyUriArray], 'status' => 404]]);
+            return response()->json(['response' => ['error' => $emptyUriArray, 'status' => 404]]);
+        }
+        foreach($guestsArray as $index => $guest){
+            $guest['banquet'] = $request->has('banquet') ? 1 : 0;
+            Guest::create($guest);
         }
 
         return response()->json(['response' => ['success' => 'Respuesta enviada con éxito', 'status' => 200]]);
@@ -102,4 +105,3 @@ class AssistanceController extends Controller
         ];
     }
 }
-

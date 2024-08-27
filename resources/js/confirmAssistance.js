@@ -40,10 +40,10 @@ confirmForm.addEventListener('submit', async (event) => {
 
         if (data.response) {
             const response = data.response;
-            
+            console.log(response);
             let message = "";
             let allErrors = new Set();
-
+            console.log(response);
             if (response.error) {
                 
                 if(response.status === 405) message = response.error;
@@ -94,6 +94,11 @@ confirmForm.addEventListener('submit', async (event) => {
                 })
                 const removePersonBtn = document.querySelector('#remove-person');
                 removePersonBtn.classList.add("hidden");
+
+                const allSongInputs = document.querySelectorAll('input[id*="song"]');
+                allSongInputs.forEach(song => {
+                    if(song.hasAttribute("data-uri")) song.removeAttribute("data-uri")
+                })
                 /* const errorInputs = document.querySelectorAll('.input-error');
                 const errorMessage = document.querySelectorAll('.error-message');
                 errorInputs.forEach(input => {
