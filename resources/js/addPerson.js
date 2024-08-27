@@ -16,6 +16,10 @@ addPersonBtn.addEventListener('click', () => {
     newPersonGroup.querySelectorAll('.error-message').forEach(input => {
         input.textContent = "";
     })
+    const newPersonSongsDiv = newPersonGroup.querySelector('#songs')
+    newPersonSongsDiv.innerHTML = ""
+    newPersonSongsDiv.classList.remove("border")
+    
     const inputs = newPersonGroup.querySelectorAll('input[type=text], textarea');
     const personNumber = newPersonGroup.querySelector('.person-number');
     personNumber.textContent = `Invitado/a ${document.querySelectorAll('.person-group').length + 1}`;
