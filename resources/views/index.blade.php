@@ -120,7 +120,7 @@
         <div class="adults bg-gray-100 p-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
             <h1 class="text-4xl font-semibold text-center text-gray-800 astralaga">Adults only</h1>
             <p class="adults-text mt-6 text-lg text-center text-gray-600">
-                os que en la medida de lo posible, dejéis a vuestros peques en casa, para que entre todos podamos disfrutar del día sin preocupaciones. Si tenéis cualquier inconveniente nos podéis contactar personalmente.
+                Pedimos que en la medida de lo posible, dejéis a vuestros peques en casa, para que entre todos podamos disfrutar del día sin preocupaciones. Si tenéis cualquier inconveniente nos podéis contactar personalmente.
             </p>
             <strong class="mt-4 text-lg text-gray-800">¡Gracias!</strong>
         </div>
