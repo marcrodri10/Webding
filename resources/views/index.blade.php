@@ -136,7 +136,7 @@
 
     <div class="confirmar-asistencia mt-40 flex flex-col justify-center items-center">
         <div class="form-asistencia flex flex-col justify-center items-center" id="confirm-form">
-            <h1 class="text-3xl text-center astralaga">RVSP</h1>
+            <h1 class="text-3xl text-center astralaga">RSVP</h1>
             <h3 class="text-center mt-5">Rogamos confirmar la asistencia antes del
                 <br><span class="italic">20 de septiembre de 2024</span></h3>
             <form id="confirm" class="mt-10 flex flex-col justify-center">
