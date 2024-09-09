@@ -78,7 +78,7 @@
     </div>
 
     <div class="image-gallery mt-32 flex justify-center items-center">
-        <div class="gallery grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="gallery grid lg:grid-cols-3 gap-5">
             @for ($i = 1; $i <= 9; $i++)
                 {{-- <div style="background-image:url({{ asset('img/gallery/' . $i . '.jpeg') }})" class="gallery-image"></div> --}}
                 <x-card imgFront="{{ asset('img/gallery/' . $i . '.jpg') }}">
@@ -99,7 +99,7 @@
                     <div class="schedule text-center flex flex-col gap-4">
                         <p>Punto de recogida en: <strong>Parroquia de SANT EUGENI I PAPA, 
                             BARCELONA</strong>  </p>
-                        <p class="italic">*Horarios por confirmar</p>
+                        <p class="italic">14:30h</p>
                     </div>
                     
                 </x-content-card>
@@ -108,7 +108,7 @@
                     <div class="schedule text-center flex flex-col gap-4">
                         <p>Vuelta a: <strong>Can Magí - Plaça de Francesc Macià, Barcelona <br>
                             Can Magí - Plaça de Catalunya, Gavà</strong></p>
-                        <p class="italic">*Horarios por confirmar</p>
+                        <p class="italic">2:15h</p>
                     </div>
                 </x-content-card>
             </div>
@@ -129,7 +129,31 @@
     <div class="dress-code mt-20 flex flex-col justify-center items-center">
         <div class="dress-code bg-gray-100 p-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
             <h1 class="text-4xl font-semibold text-center text-gray-800 astralaga">Dress code</h1>
-            <p class="dress-code-text mt-6 text-lg text-center text-gray-600">Elegante</p>
+            <img src="{{asset("img/hanger.svg")}}" alt="hanger" class="h-10 w-10">
+            <h2 class="dress-code-text mt-6 text-xl text-center font-semibold text-gray-600 astralaga">FORMAL</h2>
+            <div class="dress-code-text-wrapper w-3/5 mt-10 flex flex-col justify-center items-center gap-5">
+                <p class="text-center">Lo más importante para nosotros es que disfrutéis. Pero nos gustaría que la vestimenta fuera formal </p>
+                <img src="{{asset("img/heart.svg")}}" alt="heart" class="h-10 w-10">
+            </div>
+            <div class="dress-code-content-wrapper flex gap-20 mt-10">
+                <div class="dress-code-female-wrapper flex flex-col justify-center items-center gap-2">
+                    <h1>ELEGANTE</h1>
+                    <img src="{{asset("img/female.svg")}}" alt="female icon" class="h-8 w-8">
+                    <ul class="flex flex-col justify-center items-center">
+                        <li>Vestido de noche</li>
+                        <li>Vestido cóctel</li>
+                        <li>Pantalón de fiesta</li>
+                    </ul>
+                </div>
+                <div class="dress-code-male-wrapper flex flex-col justify-start items-center gap-2">
+                    <h1>TRAJE FORMAL</h1>
+                    <img src="{{asset("img/male.svg")}}" alt="male icon" class="h-8 w-8">
+                    <ul class="flex flex-col justify-center items-center">
+                        <li>Traje oscuro</li>
+                        <li>Corbata o pajarita</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     
