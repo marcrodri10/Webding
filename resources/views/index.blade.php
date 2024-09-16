@@ -3,20 +3,13 @@
 @section('title', 'Bienvenido')
 
 @section('content')
-    {{-- <div id="wedding-day" class="flex flex-col justify-center mt-10 items-center">
-        <h1 class="text-3xl">WEDDING DAY</h1>
-        <div id="roadmap" class="mt-10 relative flex flex-col">
-            <img src="{{ asset('img/roadmap.svg') }}" alt="" class="roadmap-bar">
-            <x-roadmap-group image="img/IglesiaColor.jpeg" title="Ceremonia" time="12 : 30"
-                location="PARRÒQUIA DE SANT EUGENI I PAPA"
-                map="https://www.google.es/maps/place/Iglesia+de+San+Eugenio/@41.3896705,2.1435739,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a28291573501:0x6cf16d975f77d450!8m2!3d41.3896665!4d2.1461542!16s%2Fg%2F1tr46pjv?entry=ttu" />
-            <x-roadmap-group image="img/transporte.png" title="Traslado al restaurante" time="13 : 30" reverse="true" />
-            <x-roadmap-group image="img/magi.jpeg" title="Recepción" time="14 : 00" location="CAN MAGÍ"
-                map="https://www.google.es/maps/place/Masía+Can+Magí/@41.4810881,2.0881215,16z/data=!3m1!4b1!4m6!3m5!1s0x12a496eb43420dc1:0x2a3daa82ed2111de!8m2!3d41.4810841!4d2.0907018!16s%2Fg%2F11b7l84ww0?entry=ttu" />
-            <x-roadmap-group image="img/transporte2.png" title="Traslado a casa" time="02 : 00" reverse="true" />
-        </div>
-    </div> --}}
-    <div id="wedding-day" class="flex flex-col justify-center mt-32 items-center">
+
+    <div id="wedding-main-message-wrapper" class="flex justify-center mt-24">
+        <h1 class="astralaga text-7xl tracking-wider">¡Nos casamos!</h1>
+    </div>
+    
+    <div id="wedding-day" class="flex flex-col justify-center mt-24 items-center">
+        
         <h1 class="text-3xl astralaga">Dónde y cuándo</h1>
         <div class="wedding-day-info-wrapper mt-10 flex md:flex-row flex-col justify-center items-center gap-10">
             <x-wedding-day title="Ceremonia católica" time="12:30h" site="PARRÒQUIA DE SANT EUGENI I PAPA"
@@ -78,8 +71,8 @@
     </div>
 
     <div class="image-gallery mt-32 flex justify-center items-center">
-        <div class="gallery grid lg:grid-cols-3 gap-5">
-            @for ($i = 1; $i <= 9; $i++)
+        <div class="gallery grid lg:grid-cols-3 gap-5 md:grid-cols-2">
+            @for ($i = 1; $i <= 12; $i++)
                 {{-- <div style="background-image:url({{ asset('img/gallery/' . $i . '.jpeg') }})" class="gallery-image"></div> --}}
                 <x-card imgFront="{{ asset('img/gallery/' . $i . '.jpg') }}">
                     {{$cardsImg[$i - 1]}}

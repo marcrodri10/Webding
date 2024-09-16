@@ -122,6 +122,9 @@ return [
         realidad estábamos destrozados.",
         "Pasar tiempo en familia y un buen picapica, no hay plan que nos guste más.",
         "La familia, un pilar fundamental en nuestra vida.",
-        "Ser del barça és, el millor que hi ha."
+        "Ser del barça és, el millor que hi ha.",
+        "Nos encantan tanto los escape rooms que ya estamos considerando hacer uno para encontrar las llaves... ¡aunque las tengamos en la mano!",
+        "Amigos, adrenalina y algún que otro mareo.",
+        "Disfrutar la gastronomía de Barcelona en buena compañía es otro de nuestros planes favoritos."
     ]
 ];
