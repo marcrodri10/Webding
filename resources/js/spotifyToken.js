@@ -5,7 +5,6 @@ let interval;
 //const songsDiv = document.querySelector('#songs');
 personContainer.addEventListener('input', (event) => {
     if (event.target.id.includes("song")) {
-        
         const songsDiv = event.target.parentElement.parentElement.children[3];
 
         const songInput = event.target;
@@ -60,7 +59,9 @@ personContainer.addEventListener('input', (event) => {
 personContainer.addEventListener('click', (event) => {
     const songsDiv = event.target.closest('#songs');
     if (songsDiv) {
+        
         const songInput = event.target.closest('.cancion').querySelector('.form-input');
+        
         if (event.target.closest(".in-playlist")) {
             const messageContainer = document.querySelector('#message-container');
             messageContainer.innerHTML = library.generateErrorToast('Esta canción ya se encuentra en nuestra playlist. Escoge otra');
@@ -80,11 +81,13 @@ personContainer.addEventListener('click', (event) => {
             }
         }
         else {
-            songInput.value = event.target.textContent.trim()
+            const songUriContent = event.target.closest(".song-name").children[0]
+            songInput.value = songUriContent.textContent.trim()
+
             if (songsDiv.classList.contains("input-error")) songsDiv.classList.remove("input-error")
             if (songInput.classList.contains('input-error')) songInput.classList.remove("input-error")
             songsDiv.nextElementSibling.querySelector('.error-message').innerHTML = "";
-            songInput.setAttribute('data-uri', event.target.getAttribute('data-uri'))
+            songInput.setAttribute('data-uri', songUriContent.getAttribute('data-uri'))
             songsDiv.innerHTML = ""
             songsDiv.classList.remove("border")
         }
