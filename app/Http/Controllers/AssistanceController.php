@@ -20,9 +20,10 @@ class AssistanceController extends Controller
 
     public function store(Request $request)
     {
+        
         $guestsArray = Guest::createGuestsArray($request->all());
         $errorsArray = $this->validateGuests($guestsArray);
-
+    
         if (!empty($errorsArray)) {
             return response()->json(['response' => ['error' => $errorsArray, 'status' => 404]]);
         }
@@ -55,7 +56,8 @@ class AssistanceController extends Controller
             return response()->json(['response' => ['error' => $emptyUriArray, 'status' => 404]]);
         }
         foreach($guestsArray as $index => $guest){
-            $guest['banquet'] = $request->has('banquet') ? 1 : 0;
+            if($guest["banquet"] == "0") $guest["banquet"] = 0;
+            else $guest["banquet"] = 1;
             Guest::create($guest);
         }
 

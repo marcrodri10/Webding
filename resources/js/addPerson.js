@@ -31,7 +31,8 @@ addPersonBtn.addEventListener('click', () => {
     });
     checkboxes.forEach((checkbox) => {
         checkbox.checked = false;
-        checkbox.name = `menu[${document.querySelectorAll('.person-group').length + 1}][menu]`
+        if(checkbox.className.includes("menu-input")) checkbox.name = `menu[${document.querySelectorAll('.person-group').length + 1}][menu]`
+        
         checkbox.id = checkbox.id.replace(/\d+$/, '') + (document.querySelectorAll('.person-group').length + 1)
         checkbox.nextElementSibling.setAttribute('for', checkbox.id.replace(/\d+$/, '') + (document.querySelectorAll('.person-group').length + 1))
     })

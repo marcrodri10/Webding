@@ -43,12 +43,20 @@ class Guest extends Model
     public static function createGuestsArray($guestForm){
         $totalGuests = (int) $guestForm["totalGuests"];
         $guestsArray = [];
-        
+
         foreach($guestForm as $formName => $array){
             if(gettype($array) == "array"){
                 foreach($array as $key => $value){
                     if($formName == "menu"){
                         $guestsArray[$key][$formName] = $value["menu"];
+                    }
+                    else if($formName == "banquet"){
+                        if($array[$key] == "0") $guestsArray[$key + 1][$formName] = "0";
+                        else $guestsArray[$key + 1][$formName] = "1";
+                    }
+                    else if($formName == "home"){
+                        if($array[$key] == "0") $guestsArray[$key + 1][$formName] = "No";
+                        else $guestsArray[$key + 1][$formName] = $array[$key];
                     }
                     else $guestsArray[$key + 1][$formName] = $value;
                 }

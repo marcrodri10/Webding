@@ -8,6 +8,7 @@ confirmForm.addEventListener('submit', async (event) => {
 
     const songsUri = [];
     event.preventDefault();
+    const allPersonsGroup = confirmForm.querySelectorAll('.person-group')
     const totalGuests = confirmForm.querySelectorAll('.person-group').length;
 
     const formData = new FormData(confirmForm);
@@ -21,7 +22,25 @@ confirmForm.addEventListener('submit', async (event) => {
     songsUri.forEach((song) => {
         formData.append("uri[]    ", song);
     });
+    //reescribir traslados de ida y vuelta
+    formData.delete("banquet[]")
+    formData.delete("home[]")
+   
+    allPersonsGroup.forEach(person => {
+        console.log(person);
+        const personBanquet = person.querySelector("input[name*=banquet]")
+        if(personBanquet.checked) formData.append("banquet[]", 1)
+        else formData.append("banquet[]", 0)
+        
+        const personHome = person.querySelectorAll("input[name*=home]:checked")
+        
+        if(personHome.length == 1) {
+            formData.append("home[]", personHome[0].value)
+        }
+        else formData.append("home[]", 0)
+    })
 
+    
     formData.append("totalGuests", totalGuests);
 
     try {
