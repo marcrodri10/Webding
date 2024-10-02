@@ -118,8 +118,7 @@ return [
         "It is always better when we are together.",
         "Deporte, nieve y buena compañía. No hay mejor combinación.",
         "Nos encanta tener gente en casa, donde caben dos caben veinte.",
-        "Nuestro primer triatlón: intentamos poner buena cara para la foto, pero en
-        realidad estábamos destrozados.",
+        "¡El mejor equipo!",
         "Pasar tiempo en familia y un buen picapica, no hay plan que nos guste más.",
         "La familia, un pilar fundamental en nuestra vida.",
         "Ser del barça és, el millor que hi ha.",
