@@ -5,7 +5,7 @@
 @section('content')
 
     <div id="wedding-main-message-wrapper" class="flex justify-center mt-24">
-        <h1 class="astralaga text-7xl tracking-wider">¡Nos casamos!</h1>
+        <h1 class="astralaga text-7xl tracking-wider text-center">¡Nos casamos!</h1>
     </div>
     
     <div id="wedding-day" class="flex flex-col justify-center mt-24 items-center">
