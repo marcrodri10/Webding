@@ -101,7 +101,7 @@
                     <div class="schedule text-center flex flex-col gap-4">
                         <p>Vuelta a: <strong>Can Magí - Plaça de Francesc Macià, Barcelona <br>
                             Can Magí - Plaça de Catalunya, Gavà</strong></p>
-                        <p class="italic">2:15h</p>
+                        <p class="italic">00:15h</p>
                     </div>
                 </x-content-card>
             </div>
